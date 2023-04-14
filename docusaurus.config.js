@@ -20,7 +20,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "YiRanCN", // Usually your GitHub org/user name.
   projectName: "idoc", // Usually your repo name.
-  deploymentBranch: "deploy",
+  deploymentBranch: "gh-pages",
   trailingSlash: true,
 
   onBrokenLinks: "throw",
