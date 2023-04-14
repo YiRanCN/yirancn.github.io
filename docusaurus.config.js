@@ -14,12 +14,12 @@ const config = {
   url: "https://yirancn.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/idoc/",
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "YiRanCN", // Usually your GitHub org/user name.
-  projectName: "idoc", // Usually your repo name.
+  projectName: "yirancn.github.io", // Usually your repo name.
   deploymentBranch: "gh-pages",
   trailingSlash: true,
 
