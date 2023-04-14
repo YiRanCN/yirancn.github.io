@@ -11,7 +11,7 @@ const config = {
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://your-docusaurus-test-site.com",
+  url: "https://yirancn.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -20,6 +20,8 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "YiRanCN", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
+  deploymentBranch: "deploy",
+  trailingSlash: false,
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -29,7 +31,7 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "zh-Hans",
-    locales: ["zh"],
+    locales: ["zh-Hans"],
   },
 
   presets: [
