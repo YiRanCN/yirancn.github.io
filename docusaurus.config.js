@@ -66,17 +66,23 @@ const config = {
       navbar: {
         title: "YiRanCN",
         logo: {
-          alt: "My Site Logo",
-          src: "img/logo.svg",
+          alt: "YiRanCN",
+          src: "img/logo.png",
         },
         items: [
           {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "Tutorial",
+            label: "自我介绍",
           },
-          { to: "/blog", label: "技术总结", position: "left" },
+          {
+            type: "docSidebar",
+            sidebarId: "studySidebar",
+            position: "left",
+            label: "技术总结",
+          },
+          { to: "/blog", label: "博客", position: "left" },
           {
             href: "https://github.com/YiRanCN/YiRanCN",
             label: "GitHub",
@@ -88,10 +94,10 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            title: "文章列表",
             items: [
               {
-                label: "Tutorial",
+                label: "自我介绍",
                 to: "/docs/intro",
               },
             ],
@@ -103,21 +109,13 @@ const config = {
                 label: "Stack Overflow",
                 href: "https://stackoverflow.com/questions/tagged/docusaurus",
               },
-              {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
-              },
-              {
-                label: "Twitter",
-                href: "https://twitter.com/docusaurus",
-              },
             ],
           },
           {
-            title: "More",
+            title: "更多",
             items: [
               {
-                label: "Blog",
+                label: "技术总结",
                 to: "/blog",
               },
               {
