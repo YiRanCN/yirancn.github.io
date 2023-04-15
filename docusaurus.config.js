@@ -21,7 +21,7 @@ const config = {
   organizationName: "YiRanCN", // Usually your GitHub org/user name.
   projectName: "yirancn.github.io", // Usually your repo name.
   deploymentBranch: "gh-pages",
-  trailingSlash: true,
+  trailingSlash: false,
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -33,7 +33,7 @@ const config = {
     defaultLocale: "zh-Hans",
     locales: ["zh-Hans"],
   },
-
+  // 预设一些插件配置
   presets: [
     [
       "classic",
@@ -41,6 +41,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
+          showLastUpdateTime: true,
         },
         blog: {
           showReadingTime: true,
@@ -116,7 +117,24 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      title: "YiRanCN 物联网云平台开发者",
     }),
+  headTags: [
+    {
+      tagName: "meta",
+      attributes: {
+        name: "keywords",
+        content: "YiRanCN 物联网云平台开发者"
+      }
+    },
+    {
+      tagName: "meta",
+      attributes: {
+        name: "description",
+        content: "YiRanCN 物联网云平台开发者"
+      }
+    },
+  ],
 };
 
 module.exports = config;
