@@ -98,7 +98,7 @@ const config = {
             items: [
               {
                 label: "自我介绍",
-                to: "/docs/intro",
+                to: "/docs/me/intro",
               },
             ],
           },
