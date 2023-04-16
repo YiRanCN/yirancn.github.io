@@ -77,6 +77,12 @@ const config = {
             position: "left",
             label: "技术总结",
           },
+          {
+            type: "docSidebar",
+            sidebarId: "xuanxingSidebar",
+            position: "left",
+            label: "技术选型",
+          },
           { to: "/blog", label: "博客", position: "left" },
           {
             href: "https://github.com/YiRanCN/YiRanCN",
@@ -118,6 +124,10 @@ const config = {
         darkTheme: darkCodeTheme,
       },
       title: "YiRanCN 物联网云平台开发者",
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 5,
+      },
     }),
   headTags: [
     {
