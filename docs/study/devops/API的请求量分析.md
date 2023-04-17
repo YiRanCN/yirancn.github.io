@@ -363,7 +363,7 @@ curl -XGET 'http://127.0.0.1:9200/{具体的es库}/_search?pretty' \
   "filter":{
   	"bool":{
     "must":[{"term":{"ip":"113.110.165.243"}},
-    	{"term":{"url":"/usrCloud/datadic/getDatas"}},
+    	{"term":{"url":"/xxx/xxx"}},
       {"range":{"ts":{
         "gte":"11/Jun/2020:00:00:00 +0800",
         "lte":"12/Jun/2020:00:00:00 +0800"
@@ -769,7 +769,7 @@ curl -XGET 'http://127.0.0.1:9200/{具体的es库}/_search?pretty' \
   "query":{"constant_score":{
   "filter":{
   	"bool":{
-    "must":[{"term":{"url":"/usrCloud/dev/getDeviceDataPointHistory"}},
+    "must":[{"term":{"url":"/xxx/xx/xx"}},
       {"range":{"ts":{
         "gte":"8/Jun/2020:00:00:00 +0800",
         "lte":"9/Jun/2020:00:00:00 +0800"
@@ -789,7 +789,7 @@ curl -XGET 'http://127.0.0.1:9200/{具体的es库}/_search?pretty' \
   "query":{"constant_score":{
   "filter":{
   	"bool":{
-    "must":[{"term":{"url":"/usrCloud/user/login"}},
+    "must":[{"term":{"url":"/xx/xx/xx"}},
       {"range":{"ts":{
         "gte":"8/Jun/2020:00:00:00 +0800",
         "lte":"9/Jun/2020:00:00:00 +0800"

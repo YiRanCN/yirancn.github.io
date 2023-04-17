@@ -40,7 +40,7 @@ docker update --restart=always api
 docker update --restart=always redis
 docker update --restart=always es
 #
-docker update --restart=no es-usr.2
+docker update --restart=no es-xx.2
 ```
 
 
@@ -50,16 +50,6 @@ docker update --restart=no es-usr.2
 #安装方式一
 yum install docker
 systemctl start docker
-
-#安装方式二
-mkdir -p /root/deploy
-cd /root/deploy
-wget https://ucloud-deploy.oss-cn-shanghai.aliyuncs.com/docker/docker-engine-1.13.1-1.el7.centos.x86_64.rpm
-wget https://ucloud-deploy.oss-cn-shanghai.aliyuncs.com/docker/docker-engine-selinux-1.13.1-1.el7.centos.noarch.rpm
-yum -y localinstall docker-engine-selinux-1.13.1-1.el7.centos.noarch.rpm
-yum -y localinstall docker-engine-1.13.1-1.el7.centos.x86_64.rpm
-systemctl start docker
-systemctl status docker
 ```
 
 
@@ -78,9 +68,6 @@ docker run --name jenkins -p 8080:8080 -p 50000:50000 -v ~/Documents/docker/jenk
 
 #查看管理员密码
 docker logs jenkins
-#62a9ddd49d9b4a6db5fabaedb430b13f
-
-
 
 
 ```

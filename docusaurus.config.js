@@ -68,14 +68,14 @@ const config = {
           {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
-            position: "left",
-            label: "自我介绍",
+            position: "right",
+            label: "关于",
           },
           {
             type: "docSidebar",
             sidebarId: "studySidebar",
             position: "left",
-            label: "技术总结",
+            label: "笔记",
           },
           {
             type: "docSidebar",

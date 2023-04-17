@@ -7,9 +7,11 @@ Doris 最早是解决百度凤巢统计报表的专用系统，随着百度业�
 【总结】Doris属于百度的，Apache Doris是有百度贡献给Apache 的，DorisDB是百度前员工基于Apache Doris做的商业版本属于另外的公司，后面因为版权的问题，将DorisDB改名为StarRocks，所以StarRocks和DorisDB是属于一个产品，一个公司的。不知道小伙伴，还记不记得另外一个产品的经历跟Doris的经历非常的相似，那就是presto。这里主要讲StarRocks，因为StarRocks更新迭代很快，活跃度也高。
 
 Apache Doris GitHub地址：[https://github.com/apache/doris](https://github.com/apache/doris)
+
 Apache Doris 官网文档：[https://doris.apache.org/docs/get-starting/get-starting.html](https://doris.apache.org/docs/get-starting/get-starting.html)
 
 StarRocks GitHub地址：[https://github.com/StarRocks/starrocks](https://github.com/StarRocks/starrocks)
+
 StarRocks官方文档：[https://docs.starrocks.com/zh-cn/main/introduction/StarRocks_intro](https://docs.starrocks.com/zh-cn/main/introduction/StarRocks_intro)
 
 #### 概述

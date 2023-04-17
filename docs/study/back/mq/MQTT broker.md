@@ -2,7 +2,6 @@
 1. [官网](https://www.emqx.io/cn/)
 2. 开发语言：Erlang/OTP，一个不常见的语言；
 3. 国人开发；又称emqttd；
-4. 
 
 
 ### Eclipse Mosquitto
@@ -20,7 +19,6 @@
 ### 总结
 
 1. 开源的broker根本不能上生产环境，只有商业版本的HiveMQ和商业版本的EMQ才能满足需求；[待验证]
-2. 
 
 
 

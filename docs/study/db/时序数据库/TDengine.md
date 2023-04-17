@@ -1,3 +1,6 @@
+---
+sidebar_position: 2
+---
 [官网](https://www.taosdata.com/)
 [GitHub链接地址](https://github.com/taosdata/TDengine)
 

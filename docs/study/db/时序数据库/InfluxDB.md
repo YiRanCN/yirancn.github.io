@@ -1,3 +1,6 @@
+---
+sidebar_position: 1
+---
 ### 官方文档
 
 [官网](https://www.influxdata.com/)

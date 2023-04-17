@@ -1,6 +1,3 @@
----
-sidebar_position: 2
----
 
 ## ES版本
 
@@ -233,7 +230,7 @@ curl -XPOST 'http://127.0.0.1:9200/_reindex' \
 -d '{
   "source": {"index": "{具体的索引库}"},
   "dest": {"index": "{具体的索引库}"}}'
-# restart logstash-usr
+# restart logstash-xxx
 ...
 #reindex temp > one
 curl -XPOST 'http://127.0.0.1:9200/_reindex' \
