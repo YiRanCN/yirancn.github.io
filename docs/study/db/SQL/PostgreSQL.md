@@ -1,0 +1,19 @@
+### 简介
+
+**PostgreSQL** (也叫 Postgres)是一个自由的**对象-关系数据库**服务器(数据库管理系统)，它在灵活的 BSD-风格许可证下发行。它提供了相对其他开放源代码数据库系统(比如 MySQL 和 Firebird)，和对专有系统比如 Oracle、Sybase、IBM 的 DB2 和 Microsoft SQL Server的一种选择。
+
+PostgreSQL 的 Slogan(口号) 是 "世界上最先进的开源关系型数据库"。
+
+### PostGIS
+
+PostGIS在对象关系型数据库PostgreSQL上增加了存储管理空间数据的能力，相当于Oracle的spatial部分。PostGIS最大的特点是符合并且实现了OpenGIS的一些规范，是最著名的开源GIS数据库。
+
+PostGIS通过向PostgreSQL添加对空间数据类型、空间索引和空间函数的支持，将PostgreSQL数据库管理系统转换为空间数据库。
+
+因为PostGIS是建立在PostgreSQL之上的，所以PostGIS自动继承了重要的"企业级"特性以及开放源代码的标准。
+
+可以说PostGIS仅仅只是PostgreSQL的一个插件，但是它将PostgreSQL变成了一个强大的空间数据库！
+
+问题描述：
+
+对车辆的位置信息进行存储，查询车辆的行驶轨迹和里程。

@@ -93,30 +93,6 @@ const config = {
       },
       footer: {
         style: "dark",
-        links: [
-          {
-            title: "文章列表",
-            items: [
-              {
-                label: "自我介绍",
-                to: "/docs/me/intro",
-              },
-            ],
-          },
-          {
-            title: "更多",
-            items: [
-              {
-                label: "技术总结",
-                to: "/blog",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/YiRanCN/YiRanCN",
-              },
-            ],
-          },
-        ],
         copyright: `Copyright © ${new Date().getFullYear()} YiRanCN/weichuang docs`,
       },
       prism: {
