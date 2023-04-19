@@ -16,7 +16,7 @@ const config = {
   organizationName: "YiRanCN", // Usually your GitHub org/user name.
   projectName: "yirancn.github.io", // Usually your repo name.
   deploymentBranch: "gh-pages",
-  trailingSlash: false,
+  trailingSlash: true,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   //
@@ -129,6 +129,9 @@ const config = {
         cover: {
           title: "YiRanCN",
           subtitle: "Generate PDF from Docusaurus docs",
+        },
+        selectors: {
+          pagination: "a.pagination-nav__link--next",
         },
       },
     ],

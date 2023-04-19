@@ -12,10 +12,10 @@
         "serve": "docusaurus serve",
         "write-translations": "docusaurus write-translations",
         "write-heading-ids": "docusaurus write-heading-ids",
-        "_desp_booklet": "booklet 适合单个文档",
-        "booklet": "docusaurus booklet /docs/study/back.html",
-        "_desp_mr-pdf": "prince 适合单个文档",
-        "mr-pdf": "npx mr-pdf --initialDocURLs=\"http://localhost:3000/docs/study/fe\" --contentSelector=\"article\" --paginationSelector=\".pagination-nav__link--next > a\" --excludeSelectors=\".margin-vert--xl a\" --coverImage=\"https://docusaurus.io/img/docusaurus.png\" --coverTitle=\"Docusaurus v2\""
+        "_desp_booklet": "booklet pdf导出 注意需要设置trailingSlash=true，否则不起作用",
+        "booklet": "docusaurus booklet /docs/study/",
+        "_desp_mr-pdf": "mr-pdf pdf导出 另一种实现方式",
+        "mr-pdf": "npx mr-pdf --initialDocURLs=\"https://yirancn.github.io/docs/study\" --contentSelector=\"article\" --paginationSelector=\"a.pagination-nav__link--next\" --excludeSelectors=\".margin-vert--xl a\" --coverImage=\"https://docusaurus.io/img/docusaurus.png\" --coverTitle=\"YiRanCN Docs\""
     },
     "dependencies": {
         "@docusaurus/core": "2.4.0",
