@@ -14,10 +14,10 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
-  tutorialSidebar: ["me/intro"],
+  tutorialSidebar: ["me/index"],
 
   studySidebar: [
-    "study/study-index",
+    "study/index",
     {
       type: "category",
       label: "前端",
@@ -111,7 +111,7 @@ const sidebars = {
   ],
 
   xuanxingSidebar: [
-    "xuanxing/intro",
+    "xuanxing/index",
     {
       type: "category",
       label: "前端",

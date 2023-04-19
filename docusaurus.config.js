@@ -121,6 +121,18 @@ const config = {
       },
     },
   ],
+  plugins: [
+    [
+      "docusaurus-booklet",
+      {
+        // baseDirectory: "/build",
+        cover: {
+          title: "YiRanCN",
+          subtitle: "Generate PDF from Docusaurus docs",
+        },
+      },
+    ],
+  ],
 };
 
 module.exports = config;
