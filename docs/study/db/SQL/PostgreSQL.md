@@ -17,3 +17,23 @@ PostGIS通过向PostgreSQL添加对空间数据类型、空间索引和空间函
 问题描述：
 
 对车辆的位置信息进行存储，查询车辆的行驶轨迹和里程。
+
+### 安装postgres
+
+```shell
+#
+docker pull postgres:11.19-bullseye
+#
+docker run \
+--privileged=true \
+--restart=always \
+--name postgres \
+-e POSTGRES_PASSWORD=Aa0123 \
+-p 5432:5432 \
+-v /mnt/docker/postgresql/data:/var/lib/postgresql/data \
+-d postgres:11.19-bullseye
+# 发现使用DBeaver连接不上，需要修改/mnt/docker/postgresql/data/pg_hba.conf 
+# 增加一行host    all             all             192.168.41.69/32            trust
+# 192.168.41.69是我自己的ip
+
+```
