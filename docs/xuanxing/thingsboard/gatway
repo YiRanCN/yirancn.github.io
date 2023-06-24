@@ -1,0 +1,18 @@
+### 开发环境
+
+- macbook pro
+- vscode
+- python3.8.2
+
+### 如何使用 
+
+- 下载源码
+- python3 setup.py build
+- python3 setup.py install
+- 启动
+- python3 ./thingsboard_gateway/tb_gateway.py
+- 服务起来了，但是连不上thingboard平台，正常，需要配置一些信息
+
+### 如何配置
+
+
