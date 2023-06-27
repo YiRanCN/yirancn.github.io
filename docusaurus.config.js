@@ -85,7 +85,7 @@ const config = {
           },
           { to: "/blog", label: "博文", position: "left" },
           {
-            href: "https://github.com/YiRanCN/YiRanCN",
+            href: "https://github.com/YiRanCN",
             label: "GitHub",
             position: "right",
           },

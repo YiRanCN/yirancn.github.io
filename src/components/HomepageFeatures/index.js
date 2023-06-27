@@ -16,9 +16,9 @@ const FeatureList = [
     ),
   },
   {
-    title: "安全性高",
+    title: "免费、开源",
     img: anquanImg,
-    description: <>提供多种安全措施，如设备认证、数据加密传输和访问控制等。</>,
+    description: <>绝对的免费、开源，开放所有程序的源代码，使用完全免费。</>,
   },
   {
     title: "多协议支持",
