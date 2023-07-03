@@ -12,7 +12,9 @@ mysql:8.0.33
 
 
 docker exec -it mysql-study bash
+
 mysql -u root -p
+
 use mysql
 update user set authentication_string ='' where user = 'root';
 flush privileges;
