@@ -1,14 +1,15 @@
 ---
 sidebar_position: 2
 ---
+
 [官网](https://www.taosdata.com/)
-[GitHub链接地址](https://github.com/taosdata/TDengine)
+[GitHub 链接地址](https://github.com/taosdata/TDengine)
 
 ### 简介
 
 开源协议：AGPL V3
 开发语言：C
-商业公司：北京涛思数据科技有限公司(TAOS Data) ；涛思数据采用AGPL许可证，已经将TDengine的内核(存储、计算引擎和集群）100%开源。涛思数据将尽最大努力打造开发者社区，维护这个开源的商业模式，相信不将最核心的代码开源，任何基础软件都将无法赢得市场。涛思数据希望通过开源，快速获得市场反馈，完善产品，完善生态，而且吸引更多的开发者加入到这个项目中。
+商业公司：北京涛思数据科技有限公司(TAOS Data) ；涛思数据采用 AGPL 许可证，已经将 TDengine 的内核(存储、计算引擎和集群）100%开源。涛思数据将尽最大努力打造开发者社区，维护这个开源的商业模式，相信不将最核心的代码开源，任何基础软件都将无法赢得市场。涛思数据希望通过开源，快速获得市场反馈，完善产品，完善生态，而且吸引更多的开发者加入到这个项目中。
 支持集群：开源版本支持集群
 
 ### 评价
@@ -25,21 +26,22 @@ sidebar_position: 2
 
 问运维童鞋要了预研使用的服务器，如下：
 
-| hostname | ip |
-| --- | --- |
-| node57 | 192.168.0.57 |
-| node54 | 192.168.0.54 |
-| node53 | 192.168.0.53 |
-| node55 | 192.168.0.55 |
+| hostname | ip           |
+| -------- | ------------ |
+| node57   | 192.168.0.57 |
+| node54   | 192.168.0.54 |
+| node53   | 192.168.0.53 |
+| node55   | 192.168.0.55 |
 
+看了一下操作系统版本为 Centos 7，大家根据自己服务器的操作系统安装不同命令，以下都是基于 Centos7 的
 
-看了一下操作系统版本为Centos 7，大家根据自己服务器的操作系统安装不同命令，以下都是基于Centos7的
 ```shell
 [root@centos ~]# cat /etc/redhat-release
 CentOS Linux release 7.9.2009 (Core)
 ```
 
 根据文档依次执行：
+
 ```shell
 sudo yum install -y gcc gcc-c++ make cmake git
 
@@ -56,26 +58,29 @@ cd TDengine
 #Go 连接器和 Grafana 插件在其他独立仓库，如果安装它们的话，需要在 TDengine 目录下通过此命令安装：
 git submodule update --init --recursive
 ```
-执行最后的命令的时候，会报错，需要配置git，【YiRanCN】和【weichuang059@163.com】都是我的git账号，需要根据自己的账号自行配置
+
+执行最后的命令的时候，会报错，需要配置 git，【YiRanCN】和【weic059@163.com】都是我的 git 账号，需要根据自己的账号自行配置
+
 ```shell
 git config --global http.sslVerify false
 git config --global user.name "YiRanCN"
-git config --global user.email "weichuang059@163.com"
+git config --global user.email "xxx@163.com"
 
 ssh-keygen -t rsa -C "YiRanCN"
 
 #获取 之后 不要后面的账号 复制下来
 cat /root/.ssh/id_rsa.pub
 ```
-根据【cat /root/.ssh/id_rsa.pub】这个得结果，放到github账号的【SSH and GPG keys】功能下面
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/276833/1654587900708-8145fd94-a69e-492a-bf83-41ddd0a2e789.png#averageHue=%23fefefe&clientId=u7121fde3-9777-4&from=paste&height=1174&id=ua6a234e7&name=image.png&originHeight=1174&originWidth=2428&originalType=binary&ratio=1&rotation=0&showTitle=false&size=317728&status=done&style=none&taskId=u1b8b6bce-4d72-4ca1-b2c2-48963f55d0b&title=&width=2428)
 
+根据【cat /root/.ssh/id_rsa.pub】这个得结果，放到 github 账号的【SSH and GPG keys】功能下面
+![image.png](https://cdn.nlark.com/yuque/0/2022/png/276833/1654587900708-8145fd94-a69e-492a-bf83-41ddd0a2e789.png#averageHue=%23fefefe&clientId=u7121fde3-9777-4&from=paste&height=1174&id=ua6a234e7&name=image.png&originHeight=1174&originWidth=2428&originalType=binary&ratio=1&rotation=0&showTitle=false&size=317728&status=done&style=none&taskId=u1b8b6bce-4d72-4ca1-b2c2-48963f55d0b&title=&width=2428)
 
 #### 构建&安装【源码】
 
 构建很简单，自带构建脚本
+
 ```shell
-./build.sh 
+./build.sh
 ```
 
 #### 构件安装【安装包】
@@ -88,9 +93,9 @@ cat /root/.ssh/id_rsa.pub
 如果需要卸载：
 【sudo rpm -qa|grep tdengine】
 【sudo rpm -e tdengine】
-【sudo rm -rf /var/lib/taos/*】慎用
+【sudo rm -rf /var/lib/taos/\*】慎用
 
-#### 体验SQL
+#### 体验 SQL
 
 ```shell
 CREATE DATABASE demo;
@@ -100,32 +105,35 @@ INSERT INTO t VALUES('2019-07-15 00:00:00', 10);
 INSERT INTO t VALUES('2019-07-15 01:00:00', 20);
 SELECT * FROM t;
 ```
-为降低学习门槛，TDengine 采用传统的关系型数据库模型管理数据，和MySQL没啥太大区别。
+
+为降低学习门槛，TDengine 采用传统的关系型数据库模型管理数据，和 MySQL 没啥太大区别。
 
 #### 集群部署
 
 因为我的目标是集群，所以，上面的都是开胃小菜。
 
-| hostname | ip |
-| --- | --- |
-| node57 | 192.168.0.57 |
-| node54 | 192.168.0.54 |
-| node53 | 192.168.0.53 |
-| node55 | 192.168.0.55 |
+| hostname | ip           |
+| -------- | ------------ |
+| node57   | 192.168.0.57 |
+| node54   | 192.168.0.54 |
+| node53   | 192.168.0.53 |
+| node55   | 192.168.0.55 |
 
 使用
 【hostnamectl set-hostname node57】
 【hostnamectl set-hostname node54】
 【hostnamectl set-hostname node53】
 【hostnamectl set-hostname node55】
-命令修改hostname.
+命令修改 hostname.
 将如下配置放到【vim /etc/hosts】文件内
+
 ```shell
 192.168.0.57 node57
 192.168.0.54 node54
 192.168.0.53 node53
 192.168.0.55 node55
 ```
+
 所有的节点安装一遍。
 集群搭建完成，如下图所示：
 ![image.png](./imgs/1.png)
@@ -170,7 +178,7 @@ TDengine 建议用数据采集点的名字（如上表中的 D1001）来做表�
 
 当为某个具体数据采集点创建表时，用户可以使用超级表的定义做模板，同时指定该具体采集点（表）的具体标签值来创建该表。**通过超级表创建的表称之为子表**。正常的表与子表的差异在于：
 
-1. 子表就是表，因此所有正常表的SQL操作都可以在子表上执行。
+1. 子表就是表，因此所有正常表的 SQL 操作都可以在子表上执行。
 2. 子表在正常表的基础上有扩展，它是带有静态标签的，而且这些标签可以事后增加、删除、修改，而正常的表没有。
 3. 子表一定属于一张超级表，但普通表不属于任何超级表
 4. 普通表无法转为子表，子表也无法转为普通表。
@@ -182,7 +190,7 @@ TDengine 建议用数据采集点的名字（如上表中的 D1001）来做表�
 3. 超级表只定义一个模板，自身不存储任何数据或标签信息。因此，不能向一个超级表写入数据，只能将数据写入子表中。
 
 查询既可以在表上进行，也可以在超级表上进行。针对超级表的查询，TDengine 将把所有子表中的数据视为一个整体数据集进行处理，会先把满足标签过滤条件的表从超级表中找出来，然后再扫描这些表的时序数据，进行聚合操作，这样需要扫描的数据集会大幅减少，从而显著提高查询的性能。本质上，TDengine 通过对超级表查询的支持，实现了多个同类数据采集点的高效聚合。
-TDengine系统建议给一个数据采集点建表，需要通过超级表建表，而不是建普通表。
+TDengine 系统建议给一个数据采集点建表，需要通过超级表建表，而不是建普通表。
 
 #### 库 (database)
 
@@ -190,11 +198,12 @@ TDengine系统建议给一个数据采集点建表，需要通过超级表建表
 
 一个库里，可以有一到多个超级表，但一个超级表只属于一个库。一个超级表所拥有的子表全部存在一个库里。
 
-这里一定要注意，我们在设计库的时候，一定要根据数据的情况来，例如上下线消息和设备历史数据应该分两个库，因为他们的数据保留时间不同，设备上下线消息存1年就很多了，设备历史数据可能需要存5年以上。
+这里一定要注意，我们在设计库的时候，一定要根据数据的情况来，例如上下线消息和设备历史数据应该分两个库，因为他们的数据保留时间不同，设备上下线消息存 1 年就很多了，设备历史数据可能需要存 5 年以上。
 
 ### 准备数据
 
-结合上面的概念以及SQL语法可以创建表做压测了，SQL是参考目前influxdb存储的历史数据来的。
+结合上面的概念以及 SQL 语法可以创建表做压测了，SQL 是参考目前 influxdb 存储的历史数据来的。
+
 ```sql
 # 保存10年 1个副本
 create database ucloud keep 3650 REPLICA 2;
@@ -217,24 +226,23 @@ select * from datapoint_record;
 
 最重点的其实是表结构的设计了，结合我们的业务，我们平台的“采集量”是配置出来，所以采集量是不固定的，用户会根据自己的事情情况动态的增删。所以我们的子表只能有一个采集量，这个是关键。
 
-我们目前用的时序数据库是InfluxDB，所以需要有个中间件，软实时同步到TDengine。实现思路为：
+我们目前用的时序数据库是 InfluxDB，所以需要有个中间件，软实时同步到 TDengine。实现思路为：
 
 1. 定时每分钟；
-2. 导出InfluxDB数据，一分钟的；
-3. 读取这个导出文件，并插入到TDengine中；
+2. 导出 InfluxDB 数据，一分钟的；
+3. 读取这个导出文件，并插入到 TDengine 中；
 
 ### 压测
 
-自带taosBenchmark性能测试工具，可以使用。
+自带 taosBenchmark 性能测试工具，可以使用。
 
-无命令行参数直接运行taosBenchmark，回车直接执行，默认在 TDengine 中创建一个名为 test 的数据库，test 数据库下创建名为 meters 的一张超级表，超级表下创建 10000 张表，每张表中写入 10000 条记录。
+无命令行参数直接运行 taosBenchmark，回车直接执行，默认在 TDengine 中创建一个名为 test 的数据库，test 数据库下创建名为 meters 的一张超级表，超级表下创建 10000 张表，每张表中写入 10000 条记录。
 
 ![image.png](./imgs/2.png)
-1w张表用了接近4分钟创建完成，当然了和测试服务器的机械硬盘应该有很大关系；
+1w 张表用了接近 4 分钟创建完成，当然了和测试服务器的机械硬盘应该有很大关系；
 
 ![image.png](./imgs/3.png)
-插入1亿调数据用了18秒，当然了和测试服务器的机械硬盘应该有很大关系；
-
+插入 1 亿调数据用了 18 秒，当然了和测试服务器的机械硬盘应该有很大关系；
 
 ### 坑点汇总
 
@@ -246,6 +254,3 @@ select * from datapoint_record;
 #### 开源协议说明
 
 ![image.png](./imgs/4.png)
-
-
-

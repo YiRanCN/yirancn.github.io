@@ -93,7 +93,7 @@ const config = {
       },
       footer: {
         style: "dark",
-        copyright: `Copyright © ${new Date().getFullYear()} YiRanCN/weichuang docs`,
+        copyright: `Copyright © ${new Date().getFullYear()} YiRanCN/weic docs`,
       },
       prism: {
         theme: lightCodeTheme,

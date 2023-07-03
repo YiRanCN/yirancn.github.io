@@ -1,11 +1,11 @@
 ---
 slug: about-site
 title: 关于如何制作此网站
-authors: [weichuang]
+authors: [weic]
 tags: [GITHUB Page, docusaurus]
 ---
 
-### 创建docusaurus前端工程
+### 创建 docusaurus 前端工程
 
 此网站主要使用的技术是`docusaurus`，创建工程参考 [Docusaurus 介绍](https://docusaurus.io/zh-CN/docs)
 
@@ -21,9 +21,9 @@ npx docusaurus start
 
 :::
 
-### GITHUB的Action功能
+### GITHUB 的 Action 功能
 
-使用GITHUB的Action功能，在工程内创建.github/workflows/documentation.yml文件，内容如下：
+使用 GITHUB 的 Action 功能，在工程内创建.github/workflows/documentation.yml 文件，内容如下：
 
 :::tip
 
@@ -44,7 +44,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install and Build 🔧 
+      - name: Install and Build 🔧
         run: |
           npm i
           npm run build
@@ -58,5 +58,3 @@ jobs:
 :::
 
 ![Action](./action-1.png)
-
-
