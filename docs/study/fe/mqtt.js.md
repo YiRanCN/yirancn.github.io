@@ -1,4 +1,3 @@
 ###
 
-node_modules/.pnpm/mqtt@4.3.7/node_modules/mqtt
-webpack ./mqtt.js --output-library mqtt --mode production
+不要使用 mqtt.js 换用 precompiled-mqtt
