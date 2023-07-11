@@ -83,6 +83,12 @@ const config = {
             position: "left",
             label: "技术选型",
           },
+          {
+            type: "docSidebar",
+            sidebarId: "iotCloudSidebar",
+            position: "left",
+            label: "Iot-Cloud帮助文档",
+          },
           { to: "/blog", label: "博文", position: "left" },
           {
             href: "https://github.com/YiRanCN",
