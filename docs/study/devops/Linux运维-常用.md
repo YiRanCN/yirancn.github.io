@@ -1,3 +1,12 @@
+### 内核/发行版
+
+```shell
+# 内核 CPU架构
+uname -a
+# 发行版
+lsb_release -a
+```
+
 ### 删除多余的备份
 
 ```shell
@@ -12,7 +21,7 @@ find /mnt/docker/tomcat/logs/*.log -mtime +10 -type f -exec rm -f {} \;
 ### 文件/目录大小查看
 
 ```shell
-#查看当前目录总共占的容量。而不单独列出各子项占用的容量 
+#查看当前目录总共占的容量。而不单独列出各子项占用的容量
 du -sh
 #查看当前目录下一级子文件和子目录占用的磁盘容量。
 du -lh --max-depth=1
@@ -31,7 +40,6 @@ lsof -i:被占用的端口号
 ```
 
 ### 定时任务
-
 
 ### 防火墙
 
@@ -67,21 +75,22 @@ firewall-cmd --reload
 nohup python ./analyse_init_stocks.py > /dev/null 2>&1 &
 ```
 
-### zip文件
+### zip 文件
 
 ```shell
 yum install -y unzip zip
 ```
 
-### centos字符集问题
+### centos 字符集问题
 
-1. [CentOS7及Docker配置中文字符集问题](https://www.cnblogs.com/kcxg/p/11451120.html)
+1. [CentOS7 及 Docker 配置中文字符集问题](https://www.cnblogs.com/kcxg/p/11451120.html)
 
 ### 宝塔相关
 
-1. 如果不知道宝塔的管理员的用户名和密码，但是可以登录服务器，使用脚本bt default来获取管理员的用户名和密码。
+1. 如果不知道宝塔的管理员的用户名和密码，但是可以登录服务器，使用脚本 bt default 来获取管理员的用户名和密码。
 
 ### 登录用户
+
 ```shell
 #
 w
@@ -89,20 +98,22 @@ w
 who
 ```
 
-### 常用的ls命令
+### 常用的 ls 命令
+
 ```shell
 #忽略某些文件名展示
 ll -h --ignore="*bak*"
 ```
 
 ### CPU
+
 ```shell
 #该服务器一共有几个物理CPU
-grep "physical id" /proc/cpuinfo | uniq | wc -l 
+grep "physical id" /proc/cpuinfo | uniq | wc -l
 #该服务器一共有几个逻辑CPU
-grep "processor" /proc/cpuinfo | wc -l 
+grep "processor" /proc/cpuinfo | wc -l
 #查看cpu核心数
-cat /proc/cpuinfo| grep "cpu cores"| uniq  
+cat /proc/cpuinfo| grep "cpu cores"| uniq
 #查看cpu详细信息
 lscpu
 #查看CPU位数
@@ -112,7 +123,9 @@ ps -aux | sort -k3nr | head -5
 # P按照内存大小排序 c显示进程全称
 top
 ```
+
 ### apt-get
+
 ```sql
 #
 apt-get update
@@ -121,6 +134,7 @@ apt-get install vim
 ```
 
 ### 系统盘符
+
 ```shell
 #查看系统支持的盘符，查看分区和磁盘
 lsblk
@@ -131,9 +145,10 @@ blkid
 ```
 
 ### 内存
+
 ```shell
 # 查看内存大小
-free -h 　   
+free -h 　
 # 内存占用最多的5个进程
 ps -aux | sort -k4nr | head -5
 # >或M按照内存大小排序 c显示进程全称
@@ -141,14 +156,16 @@ top
 ```
 
 ### 操作系统版本
+
 ```shell
 #红帽系列 centos
 cat /etc/redhat-release
-#查看内核/操作系统/CPU信息： 
+#查看内核/操作系统/CPU信息：
 uname -a
 ```
 
 ### 端口/连接
+
 ```shell
 #查看所有监听的端口
 netstat -lntp
@@ -160,7 +177,8 @@ yum -y install telnet.x86_64
 telnet 172.19.74.146 9200
 ```
 
-### vi/vim中文乱码
+### vi/vim 中文乱码
+
 ```shell
 #
 vi /etc/vimrc
@@ -171,8 +189,8 @@ set fileformats=unix
 set encoding=prc
 ```
 
-
 ### htop/top
+
 ```shell
 #支持鼠标 支持左右方向键
 htop
@@ -200,6 +218,7 @@ l 显示进程打开的文件
 I 倒转排序顺序
 s 选择某进程，按s:用strace追踪进程的系统调用
 ```
+
 ### grep
 
 ```shell
