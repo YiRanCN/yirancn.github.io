@@ -1,4 +1,4 @@
-# centos()
+# centos-jdk17-app
 
 ```shell
 #需要看cpu架构 x64
