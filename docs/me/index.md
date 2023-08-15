@@ -14,8 +14,6 @@ sidebar_position: 1
 
 [YiRanCN](https://github.com/YiRanCN)，这是我的 GitHub 主页，欢迎大家 follow 和 star。
 
-### 我致力于：从无到有，一行一行，码出一个免费、开源的物联网云平台，加油！
-
 [![微信](https://img.shields.io/badge/%E5%BE%AE%E4%BF%A1-yiranchengnan-blue)](https://img.shields.io/badge/%E5%BE%AE%E4%BF%A1-yiranchengnan-blue)
 [![mail](https://img.shields.io/badge/mail-cniiot%40163.com-brightgreen)](mailto:cniiot@163.com)
 
@@ -31,9 +29,3 @@ sidebar_position: 1
 - 其他
 
 [物联网云平台产品架构](https://github.com/YiRanCN/YiRanCN/blob/main/%E7%89%A9%E8%81%94%E7%BD%91%E4%BA%91%E5%B9%B3%E5%8F%B0%E4%BA%A7%E5%93%81%E6%9E%B6%E6%9E%84.md)
-
-[物联网云平台-后端源码](https://github.com/YiRanCN/iot-cloud-backend)
-
-[物联网云平台-前端源码](https://github.com/YiRanCN/iot-cloud-frontend)
-
-[物联网云平台-APP 端源码](https://github.com/YiRanCN/iot_cloud_flutter)
