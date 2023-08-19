@@ -22,9 +22,9 @@ kafka 最新定义为：分布式流式平台，而不是单纯的消息系统�
 # 创建topic
 ./kafka-topics.sh --create --bootstrap-server localhost:9092 --topic xxx
 # 创建生产者
-./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic weic
+./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic jiot.cloud
 # 创建消费者
 ./kafka-console-consumer.sh --bootstrap-server localhost:9092 \
---topic weic \
+--topic jiot.cloud \
 --from-beginning
 ```

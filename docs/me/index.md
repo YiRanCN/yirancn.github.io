@@ -14,8 +14,7 @@ sidebar_position: 1
 
 [YiRanCN](https://github.com/YiRanCN)，这是我的 GitHub 主页，欢迎大家 follow 和 star。
 
-[![微信](https://img.shields.io/badge/%E5%BE%AE%E4%BF%A1-yiranchengnan-blue)](https://img.shields.io/badge/%E5%BE%AE%E4%BF%A1-yiranchengnan-blue)
-[![mail](https://img.shields.io/badge/mail-cniiot%40163.com-brightgreen)](mailto:cniiot@163.com)
+微信号：jiot_cloud 邮箱：jiotcloud@163.com
 
 <img align="right" alt="img" src="/img/cover_image.jpg" width="50%" height="auto" />
 

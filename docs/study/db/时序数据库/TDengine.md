@@ -59,7 +59,7 @@ cd TDengine
 git submodule update --init --recursive
 ```
 
-执行最后的命令的时候，会报错，需要配置 git，【YiRanCN】和【weic059@163.com】都是我的 git 账号，需要根据自己的账号自行配置
+执行最后的命令的时候，会报错，需要配置 git，【YiRanCN】和【jiot.cloud059@163.com】都是我的 git 账号，需要根据自己的账号自行配置
 
 ```shell
 git config --global http.sslVerify false

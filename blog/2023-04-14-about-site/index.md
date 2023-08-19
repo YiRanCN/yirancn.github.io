@@ -1,7 +1,7 @@
 ---
 slug: about-site
 title: 关于如何制作此网站
-authors: [weic]
+authors: [jiot.cloud]
 tags: [GITHUB Page, docusaurus]
 ---
 

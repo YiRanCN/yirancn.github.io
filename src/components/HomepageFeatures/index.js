@@ -9,44 +9,46 @@ import sdkImg from "@site/static/img/sdk.png";
 import guanliImg from "@site/static/img/guan-li.png";
 const FeatureList = [
   {
-    title: "高可扩展性",
+    title: "手机组态编辑器",
     img: tuozhanImg,
     description: (
-      <>能够支持大规模设备连接和数据处理，并且可以根据业务需求弹性伸缩。</>
-    ),
-  },
-  {
-    title: "免费、开源",
-    img: anquanImg,
-    description: <>绝对的免费、开源，开放所有程序的源代码，使用完全免费。</>,
-  },
-  {
-    title: "多协议支持",
-    img: xieyiImg,
-    description: (
-      <>支持不同类型的通信协议，例如MQTT、CoAP、HTTP、Modbus等等。</>
-    ),
-  },
-  {
-    title: "数据存储与分析",
-    img: dbImg,
-    description: (
       <>
-        支持大规模数据存储和分析，对接接入设备，实现对数据的采集、存储、处理和分析。
+        可以在控制台零代码拖拽生成不同的设备详情，方便手机端小程序和APP灵活使用。
       </>
     ),
   },
   {
-    title: "业务应用快速接入",
-    img: sdkImg,
-    description: <>提供API和SDK，方便开发者快速接入并使用平台功能。</>,
+    title: "代码全部开源、使用完全免费",
+    img: anquanImg,
+    description: (
+      <>
+        绝对的免费、开源，开放所有程序的源代码，使用完全免费；包含手机组态和WEB组态源码。
+      </>
+    ),
   },
   {
-    title: "强大的管理工具",
+    title: "WEB组态编辑器",
+    img: xieyiImg,
+    description: <>低代码灵活拖拽生成不同的web组态画面。</>,
+  },
+  {
+    title: "报警联动灵活多样",
+    img: dbImg,
+    description: <>支持多条件报警触发器，支持报警联动，且支持多种报警方式。</>,
+  },
+  {
+    title: "多协议支持，且可自定义解析",
+    img: sdkImg,
+    description: <>支持MQTT、TCP、HTTP、ModbusRTU，且可以自定义协议解析。</>,
+  },
+  {
+    title: "完善的用户体系支持",
     img: guanliImg,
     description: (
       <>
-        提供设备管理、运营监控、异常告警、日志分析等工具，帮助企业轻松管理和维护设备。
+        支持<span style={{ fontWeight: 600 }}>RAM用户</span>、
+        <span style={{ fontWeight: 600 }}>客户</span>
+        两种用户类型，支持设备分组，方便企业管理设备的用户权限。
       </>
     ),
   },

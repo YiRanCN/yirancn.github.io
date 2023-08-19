@@ -77,19 +77,18 @@ const config = {
             position: "left",
             label: "笔记",
           },
-          {
-            type: "docSidebar",
-            sidebarId: "xuanxingSidebar",
-            position: "left",
-            label: "技术选型",
-          },
+          // {
+          //   type: "docSidebar",
+          //   sidebarId: "xuanxingSidebar",
+          //   position: "left",
+          //   label: "技术选型",
+          // },
           {
             type: "docSidebar",
             sidebarId: "iotCloudSidebar",
             position: "left",
-            label: "Iot-Cloud帮助文档",
+            label: "jiot.cloud文档",
           },
-          { to: "/blog", label: "博文", position: "left" },
           {
             href: "https://github.com/YiRanCN",
             label: "GitHub",
@@ -99,7 +98,7 @@ const config = {
       },
       footer: {
         style: "dark",
-        copyright: `Copyright © ${new Date().getFullYear()} YiRanCN/weic docs`,
+        copyright: `Copyright © ${new Date().getFullYear()} YiRanCN/jiot.cloud docs`,
       },
       prism: {
         theme: lightCodeTheme,

@@ -14,15 +14,15 @@ docker run -d \
 alpine:3.18.3
 
 FROM alpine:3.18.3
-MAINTAINER weic "cniiot@163.com"
+MAINTAINER jiot.cloud "cniiot@163.com"
 WORKDIR /root/iot-cloud-backend
 ADD jdk-17_linux-x64_bin.tar.gz /root/iot-cloud-backend/
 ENV JAVA_HOME=/root/iot-cloud-backend/jdk-17.0.8
 ENV PATH=$JAVA_HOME/bin:$PATH
 
-docker build -t jdk17:weic .
+docker build -t jdk17:jiot.cloud .
 
-docker run -it jdk17:weic /bin/sh
+docker run -it jdk17:jiot.cloud /bin/sh
 
 docker pull debian:stable-slim
 
@@ -36,15 +36,15 @@ docker run -d \
 debian:stable-slim
 
 FROM debian:stable-slim
-MAINTAINER weic "cniiot@163.com"
+MAINTAINER jiot.cloud "cniiot@163.com"
 WORKDIR /root/iot-cloud-backend
 ADD jdk-17_linux-x64_bin.tar.gz /root/iot-cloud-backend/
 ENV JAVA_HOME=/root/iot-cloud-backend/jdk-17.0.8
 ENV PATH=$JAVA_HOME/bin:$PATH
 
-docker build -t jdk17:weic .
+docker build -t jdk17:jiot.cloud .
 
-docker run -it jdk17:weic /bin/sh
+docker run -it jdk17:jiot.cloud /bin/sh
 
 docker pull centos:centos7.9.2009
 
@@ -58,12 +58,12 @@ docker run -d \
 centos:centos7.9.2009
 
 FROM centos:centos7.9.2009
-MAINTAINER weic "cniiot@163.com"
+MAINTAINER jiot.cloud "cniiot@163.com"
 WORKDIR /root/iot-cloud-backend
 ADD jdk-17_linux-x64_bin.tar.gz /root/iot-cloud-backend/
 ENV JAVA_HOME=/root/iot-cloud-backend/jdk-17.0.8
 ENV PATH=$JAVA_HOME/bin:$PATH
 
-docker build -t jdk17:weic .
+docker build -t jdk17:jiot.cloud .
 
-docker run -it jdk17:weic /bin/sh
+docker run -it jdk17:jiot.cloud /bin/sh
