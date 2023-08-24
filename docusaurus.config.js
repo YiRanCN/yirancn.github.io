@@ -34,13 +34,6 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           showLastUpdateTime: true,
         },
-        blog: {
-          blogTitle: "博文",
-          blogDescription: "博文",
-          blogSidebarTitle: "最新博文",
-          blogSidebarCount: 10, // 隐藏博文侧边栏
-          showReadingTime: true,
-        },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -59,9 +52,9 @@ const config = {
         },
       },
       navbar: {
-        title: "YiRanCN",
+        title: "Jiot.Cloud",
         logo: {
-          alt: "YiRanCN",
+          alt: "Jiot.Cloud",
           src: "img/logo.png",
         },
         items: [
@@ -87,7 +80,7 @@ const config = {
             type: "docSidebar",
             sidebarId: "iotCloudSidebar",
             position: "left",
-            label: "jiot.cloud文档",
+            label: "Jiot.Cloud文档",
           },
           {
             href: "https://github.com/YiRanCN",
@@ -97,8 +90,8 @@ const config = {
         ],
       },
       footer: {
-        style: "dark",
-        copyright: `Copyright © ${new Date().getFullYear()} YiRanCN/jiot.cloud docs`,
+        style: "light",
+        copyright: `Copyright © ${new Date().getFullYear()} YiRanCN docs`,
       },
       prism: {
         theme: lightCodeTheme,

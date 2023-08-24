@@ -9,22 +9,14 @@ import sdkImg from "@site/static/img/sdk.png";
 import guanliImg from "@site/static/img/guan-li.png";
 const FeatureList = [
   {
-    title: "手机组态编辑器",
-    img: tuozhanImg,
-    description: (
-      <>
-        可以在控制台零代码拖拽生成不同的设备详情，方便手机端小程序和APP灵活使用。
-      </>
-    ),
-  },
-  {
     title: "代码全部开源、使用完全免费",
     img: anquanImg,
-    description: (
-      <>
-        绝对的免费、开源，开放所有程序的源代码，使用完全免费；包含手机组态和WEB组态源码。
-      </>
-    ),
+    description: <>绝对的免费、开源，开放所有程序的源代码，使用完全免费；包含手机组态和WEB组态源码。</>,
+  },
+  {
+    title: "手机组态编辑器",
+    img: tuozhanImg,
+    description: <>可以在控制台零代码拖拽生成不同的设备详情，方便手机端小程序和APP灵活使用。</>,
   },
   {
     title: "WEB组态编辑器",
@@ -46,8 +38,7 @@ const FeatureList = [
     img: guanliImg,
     description: (
       <>
-        支持<span style={{ fontWeight: 600 }}>RAM用户</span>、
-        <span style={{ fontWeight: 600 }}>客户</span>
+        支持<span style={{ fontWeight: 600 }}>RAM用户</span>、<span style={{ fontWeight: 600 }}>客户</span>
         两种用户类型，支持设备分组，方便企业管理设备的用户权限。
       </>
     ),
@@ -56,22 +47,10 @@ const FeatureList = [
 
 function Feature({ img, title, description }) {
   return (
-    <div className={clsx("col col--4")}>
-      <div className="text--center">
-        {/* <Svg className={styles.featureSvg} role="img" /> */}
-        <img
-          src={img}
-          className={styles.featureImg}
-          style={{
-            borderRadius: "10px",
-            border: "1px solid #efefef",
-            width: "80%",
-          }}
-        />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <h3 style={{ fontSize: "18px" }}>{title}</h3>
-        <p style={{ fontSize: "13px" }}>{description}</p>
+    <div className={clsx("col col--3")} style={{}}>
+      <div className="text--left" style={{ borderRadius: "10px", backgroundColor: "rgba(244, 244, 255, 1)", padding: "10px", height: "140px", marginBottom: "20px" }}>
+        <h4 style={{ fontSize: "16px", paddingTop: "15px" }}>{title}</h4>
+        <p style={{ fontSize: "14px" }}>{description}</p>
       </div>
     </div>
   );

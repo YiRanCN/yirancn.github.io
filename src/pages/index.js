@@ -10,17 +10,28 @@ import HomepageFeatures from "@site/src/components/HomepageFeatures";
 
 import styles from "./index.module.css";
 
+import logoLargeImg from "@site/static/img/logo-large.webp";
+
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <header className={clsx("hero hero--primary", styles.heroBanner)}>
+    <header>
       <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link className="button button--secondary button--lg" to="/docs/me">
-            自我介绍 - 5min ⏱️
-          </Link>
+        <div className="row" style={{ marginTop: "100px" }}>
+          <div className={clsx("col col--6", styles.left)}>
+            <h1 className={styles.text1}>
+              <span className={styles.clip}>Jiot.cloud</span>
+            </h1>
+            <p className={styles.text2}>免费开源的物联网云平台</p>
+            <p className={styles.text3}>简单、强大、使用完全免费</p>
+            <p className={styles.text3}>包含手机组态、WEB组态，支持多种协议</p>
+          </div>
+          <div className={clsx("col col--6")}>
+            <div className={styles.right}>
+              <div className={styles.imageBg}></div>
+              <img className={styles.imageSrc} src={logoLargeImg}></img>
+            </div>
+          </div>
         </div>
       </div>
     </header>
