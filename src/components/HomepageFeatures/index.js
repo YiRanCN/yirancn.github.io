@@ -43,6 +43,26 @@ const FeatureList = [
       </>
     ),
   },
+  {
+    title: "支持企业专属信息设置",
+    img: guanliImg,
+    description: (
+      <>
+        支持<span style={{ fontWeight: 600 }}>独立域名</span>、<span style={{ fontWeight: 600 }}>Logo</span>
+        、短信、邮件、企业微信、钉钉等企业信息。
+      </>
+    ),
+  },
+  {
+    title: "付费服务",
+    img: guanliImg,
+    description: (
+      <>
+        包括<span style={{ fontWeight: 600 }}>技术支持</span>、<span style={{ fontWeight: 600 }}>协议交互文档</span>
+        、数据库设计文档、前后端技术文档等。
+      </>
+    ),
+  },
 ];
 
 function Feature({ img, title, description }) {
