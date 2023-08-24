@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[2535],{5641:e=>{e.exports=JSON.parse('{"title":"\u6700\u65b0\u535a\u6587","items":[{"title":"\u5173\u4e8e\u5982\u4f55\u5236\u4f5c\u6b64\u7f51\u7ad9","permalink":"/blog/about-site"},{"title":"\u5173\u4e8eCHATGPT","permalink":"/blog/mdx-blog-post"}]}')}}]);
