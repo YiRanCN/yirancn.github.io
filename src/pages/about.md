@@ -1,8 +1,4 @@
----
-sidebar_position: 1
----
-
-# 自我介绍
+# 关于
 
 您好，我是一名专注于物联网云平台开发的工程师。我拥有多年的物联网云平台开发经验，熟练掌握物联网相关技术和业务。
 
@@ -26,5 +22,3 @@ sidebar_position: 1
 - ts/Vue3/arco.design
 - flutter/dart
 - 其他
-
-[物联网云平台产品架构](https://github.com/YiRanCN/YiRanCN/blob/main/%E7%89%A9%E8%81%94%E7%BD%91%E4%BA%91%E5%B9%B3%E5%8F%B0%E4%BA%A7%E5%93%81%E6%9E%B6%E6%9E%84.md)

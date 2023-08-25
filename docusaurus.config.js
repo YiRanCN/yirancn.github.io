@@ -59,8 +59,7 @@ const config = {
         },
         items: [
           {
-            type: "docSidebar",
-            sidebarId: "tutorialSidebar",
+            href: "/about",
             position: "right",
             label: "关于",
           },
