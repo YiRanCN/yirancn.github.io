@@ -52,9 +52,9 @@ const config = {
         },
       },
       navbar: {
-        title: "Jiot.Cloud",
+        title: "Jiot.cloud",
         logo: {
-          alt: "Jiot.Cloud",
+          alt: "Jiot.cloud",
           src: "img/logo.png",
         },
         items: [
@@ -79,7 +79,7 @@ const config = {
             type: "docSidebar",
             sidebarId: "iotCloudSidebar",
             position: "left",
-            label: "Jiot.Cloud文档",
+            label: "文档",
           },
           {
             href: "https://github.com/YiRanCN",
