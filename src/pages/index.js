@@ -10,7 +10,7 @@ import HomepageFeatures from "@site/src/components/HomepageFeatures";
 
 import styles from "./index.module.css";
 
-import logoLargeImg from "@site/static/img/logo-jiot.webp";
+import logoLargeImg from "@site/static/img/logo-jiotcloud.webp";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
