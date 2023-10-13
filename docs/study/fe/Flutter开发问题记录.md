@@ -7,3 +7,13 @@
 ### flutter windows
 
 [基于 Flutter 实现 Windows 平台离线大模型对话应用实战](https://xie.infoq.cn/article/a0b086b20aabd229e57a9811f)
+
+### ffi插件
+
+flutter create -t plugin_ffi --platforms macos,windows,android,ios p2psdk
+
+android使用gradle构建
+ios和macos使用xcode通过CocoaPods构建
+linux和windows通过cmake构建
+
+绑定本地原生代码
