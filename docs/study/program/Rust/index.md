@@ -30,3 +30,4 @@ Rust 不像 Go,Java 以及.NET Framework 那样使用自动垃圾回收系统。
 
 - [官方网站](https://www.rust-lang.org/zh-CN)
 - [百度百科-Rust 语言](https://baike.baidu.com/item/Rust%E8%AF%AD%E8%A8%80/9502634)
+- [Rust 程序设计预研 简体中文版 非官方](https://kaisery.github.io/trpl-zh-cn/title-page.html)
