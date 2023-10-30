@@ -26,6 +26,10 @@ Rust 拥有出色的文档、友好的编译器和清晰的错误提示信息，
 
 Rust 不像 Go,Java 以及.NET Framework 那样使用自动垃圾回收系统。不同的是 Rust 通过 RAII 来管理内存和资源，还可选引用计数。Rust 以低开销提供资源确定性管理。Rust 也支持值的栈分配并不表现暗箱。
 
+### 标准库
+
+https://doc.rust-lang.org/std/index.html
+
 ### 参考
 
 - [官方网站](https://www.rust-lang.org/zh-CN)

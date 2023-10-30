@@ -40,9 +40,14 @@
 4. 数据库操作；
 5. 开发云平台；
 
+### 标准库
+
+https://pkg.go.dev/std
+
 ### 信息
 
 - 官网:https://golang.google.cn/
 - API 文档:https://golang.google.cn/doc/
 - 教程:http://www.w3cschool.cn/go/go-tutorial.html
 - 下载:https://golang.google.cn/dl/
+- 标准库：https://pkg.go.dev/std
