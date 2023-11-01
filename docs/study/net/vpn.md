@@ -28,6 +28,8 @@ OpenVpn 的技术核心是虚拟网卡，其次是 SSL 协议实现。
 
 https://community.openvpn.net/openvpn
 
+https://pritunl.com/
+
 ### 对比
 
 IPSec 协议工作在 OSI 模型的第三层，使其在单独使用时适于保护基于 TCP 或 UDP 的协议（如安全套接子层（SSL）就不能保护 UDP 层的通信流）。这就意味着，与传输层或更高层的协议相比，IPSec 协议必须处理可靠性和分片的问题，这同时也增加了它的复杂性和处理开销。相对而言，SSL/TLS 依靠更高层的 TCP（OSI 的第四层）来管理可靠性和分片。
