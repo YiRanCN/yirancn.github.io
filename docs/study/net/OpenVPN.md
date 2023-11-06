@@ -389,24 +389,31 @@ echo 'net.ipv4.ip_forward = 1' >/etc/sysctl.conf
 sysctl -p
 ```
 
-[net.ipv4.ip_forward](https://blog.csdn.net/wangqiaowq/article/details/131802323)
+参考[net.ipv4.ip_forward](https://blog.csdn.net/wangqiaowq/article/details/131802323)
 
 ### client.ovpn
 
 ```shell
+# 相当于 pull tls-client
 client
+#
 dev tun
+#
 proto udp
+# 连接远程openvpn server，可以有多个，但同时连接只有一个
 remote 60.204.171.251 1194
 resolv-retry infinite
 nobind
 persist-key
 persist-tun
+#
 ca ca.crt
 cert client001.crt
 key client001.key
 tls-auth ta.key 1
+# 
 comp-lzo
+# 日志容易级别
 verb 3
 ```
 
@@ -419,9 +426,49 @@ cd /etc/openvpn/easy-rsa/3.0/
 /usr/bin/cp -rf /etc/openvpn/easy-rsa/3.0/pki/private/client002.key /etc/openvpn/client
 ```
 
+### 配置不同的客户端启用不同的子网
+
+修改 server.conf 文件
+
+```shell
+# 启用ccd 增加两个子网路由
+client-config-dir ccd
+;route 10.9.0.0 255.255.255.252
+route 10.9.0.0 255.255.255.0
+route 10.9.1.0 255.255.255.0
+# 修改topology为subnet
+topology subnet
+```
+
+### topology
+
+#### tun 模式：
+
+- subnet：
+
+  - a. 从 pool 中选择一个 ip 作为 client 的虚拟网卡 ip；
+
+  - b. 将自己的子网掩码作为 client 的子网掩码。
+
+- p2p：
+
+  - a.从 pool 中选择一个 ip 作为 client 的虚拟网卡 ip；
+
+  - b.将自己的实际虚拟网卡 ip 作为 client 的对端 ip。
+
+- net30：
+
+  - a.从 pool 中选择 4 个掩码为 30 的 ip，将中间两个 ip 中的大者作为 client 的虚拟网卡 ip；
+
+  - b.将小者作为 client 的对端 ip。
+
+#### tap 模式：
+
+完全按照 tun 模式的 1 来分配。
+
 ### 问题：连接成功后，客户端无法正常访问其他网站
 
-讲 server.conf 的
+将 server.conf 的
 
 ```shell
 ;push "redirect-gateway def1 bypass-dhcp"
