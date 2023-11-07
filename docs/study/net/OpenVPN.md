@@ -421,9 +421,9 @@ verb 3
 
 ```shell
 cd /etc/openvpn/easy-rsa/3.0/
-./easyrsa build-client-full client002
-/usr/bin/cp -rf /etc/openvpn/easy-rsa/3.0/pki/issued/client002.crt /etc/openvpn/client
-/usr/bin/cp -rf /etc/openvpn/easy-rsa/3.0/pki/private/client002.key /etc/openvpn/client
+./easyrsa build-client-full client003
+/usr/bin/cp -rf /etc/openvpn/easy-rsa/3.0/pki/issued/client003.crt /etc/openvpn/client
+/usr/bin/cp -rf /etc/openvpn/easy-rsa/3.0/pki/private/client003.key /etc/openvpn/client
 ```
 
 ### 配置不同的客户端启用不同的子网
