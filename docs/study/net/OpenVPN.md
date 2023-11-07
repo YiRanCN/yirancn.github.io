@@ -4,6 +4,8 @@
 - [深入 openvpn 配置-有案例](https://www.linuxfly.org/post/86/)
 - [openvpn2.3.12 安装与 easy-rsa3 的使用](https://blog.51cto.com/icenycmh/1867641)
 - [阿里云服务器配置 CentOS7.4+OpenVPN-2.4.5+easy-rsa-3.0](https://blog.51cto.com/songky/2115052?articleABtest=1)
+- [OpenVPN 限制流量带宽-网卡级别限制](https://bajie.dev/zh-cn/posts/20211018-openvpn_limit_bandwidth/)
+- [解决 OpenVPN 客户端所有网络全走 VPN 的问题,server.conf 和 client.conf 配置文件详解](https://www.ilxqx.com/archives/jie-jue-openvpn-ke-hu-duan-suo-you-wang-luo-quan-zou-vpn-de-wen-ti)
 
 ### 脚本
 
@@ -411,7 +413,7 @@ ca ca.crt
 cert client001.crt
 key client001.key
 tls-auth ta.key 1
-# 
+#
 comp-lzo
 # 日志容易级别
 verb 3
