@@ -468,6 +468,22 @@ topology subnet
 
 完全按照 tun 模式的 1 来分配。
 
+### 脚本创建 client
+
+脚本创建 client，自动输入 ca 密码，
+
+```shell
+#!/usr/bin/expect
+
+set timeout 30
+
+spawn ./easyrsa build-client-full client014 nopass
+expect "pass"
+send "weichuang"
+send "\n"
+interact
+```
+
 ### 问题：连接成功后，客户端无法正常访问其他网站
 
 将 server.conf 的
