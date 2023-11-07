@@ -6,6 +6,7 @@
 - [阿里云服务器配置 CentOS7.4+OpenVPN-2.4.5+easy-rsa-3.0](https://blog.51cto.com/songky/2115052?articleABtest=1)
 - [OpenVPN 限制流量带宽-网卡级别限制](https://bajie.dev/zh-cn/posts/20211018-openvpn_limit_bandwidth/)
 - [解决 OpenVPN 客户端所有网络全走 VPN 的问题,server.conf 和 client.conf 配置文件详解](https://www.ilxqx.com/archives/jie-jue-openvpn-ke-hu-duan-suo-you-wang-luo-quan-zou-vpn-de-wen-ti)
+- [openvpn 官方命令行文档](https://build.openvpn.net/man/openvpn-2.6/openvpn.8.html)
 
 ### 脚本
 
@@ -493,3 +494,9 @@ interact
 ```
 
 注释掉
+
+### 问题：tcpdump 监听不了 tun0
+
+如果开启了 client-to-client，流量是不走 tun 的的。
+
+可以参考[openvpn server not showing traffic using tcpdump](https://serverfault.com/questions/1052645/openvpn-server-not-showing-traffic-using-tcpdump)
