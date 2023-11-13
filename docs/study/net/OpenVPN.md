@@ -7,6 +7,7 @@
 - [OpenVPN 限制流量带宽-网卡级别限制](https://bajie.dev/zh-cn/posts/20211018-openvpn_limit_bandwidth/)
 - [解决 OpenVPN 客户端所有网络全走 VPN 的问题,server.conf 和 client.conf 配置文件详解](https://www.ilxqx.com/archives/jie-jue-openvpn-ke-hu-duan-suo-you-wang-luo-quan-zou-vpn-de-wen-ti)
 - [openvpn 官方命令行文档](https://build.openvpn.net/man/openvpn-2.6/openvpn.8.html)
+- [通过 openvpn 分析 tun 实现隧道的数据流程](https://www.junmajinlong.com/virtual/network/data_flow_about_openvpn/)
 
 ### 脚本
 
