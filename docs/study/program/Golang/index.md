@@ -40,10 +40,6 @@
 4. 数据库操作；
 5. 开发云平台；
 
-### 标准库
-
-https://pkg.go.dev/std
-
 ### 信息
 
 - 官网:https://golang.google.cn/
