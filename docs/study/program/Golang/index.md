@@ -47,3 +47,7 @@
 - 教程:http://www.w3cschool.cn/go/go-tutorial.html
 - 下载:https://golang.google.cn/dl/
 - 标准库：https://pkg.go.dev/std
+
+### GC
+
+- [知乎-Golang 内存管理之 GC](https://zhuanlan.zhihu.com/p/593008674?utm_id=0)
