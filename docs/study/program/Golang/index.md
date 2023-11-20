@@ -47,6 +47,9 @@
 - 教程:http://www.w3cschool.cn/go/go-tutorial.html
 - 下载:https://golang.google.cn/dl/
 - 标准库：https://pkg.go.dev/std
+- [Go 语言设计与实现](https://draveness.me/golang/)
+  - 重点是设计原理 挺底层的
+- [李文周-Go 语言学习之路/Go 语言教程](https://www.liwenzhou.com/posts/Go/golang-menu/)
 
 ### GC
 
