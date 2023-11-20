@@ -8,7 +8,7 @@ TAP 等同于一个以太网设备，它操作第二层数据包如以太网数�
 
 Tun 虚拟设备和物理网卡的区别是 Tun 虚拟设备是 IP 层设备，从/dev/net/tun 字符设备上读取的是 IP 数据包，写入的也只能是 IP 数据包，因此不能进行二层操作，如发送 ARP 请求和以太网广播。与之相对的是，Tap 虚拟设备是以太网设备，处理的是二层以太网数据帧，从/dev/net/tun 字符设备上读取的是以太网数据帧，写入的也只能是以太网数据帧。从这点来看，Tap 虚拟设备和真实的物理网卡的能力更接近。
 
-[原理图](./images/vpn-yuanlitu.jpg)
+[原理图](./images/vpnyuanlitu.jpg)
 
 - [介绍 Linux 下的 Tun/Tap](https://www.lxlinux.net/12108.html)
   - 写的真不错，了解 tun、tap 以及 vpn 的原理图
