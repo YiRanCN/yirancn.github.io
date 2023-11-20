@@ -1,4 +1,4 @@
-<!-- ### 脚本
+### 脚本
 
 ```shell
 go env -w GOPROXY=https://goproxy.cn
@@ -12,4 +12,4 @@ go env -w GOPROXY=https://goproxy.cn
 
 - https://goproxy.io：由 GOPROXY.IO 提供的全球加速的代理服务器，支持 Go 1.13 及以上版本。
 
-- https://proxy.golang.org：由 Google 提供的官方代理服务器，支持 Go 1.11 及以上版本。 -->
+- https://proxy.golang.org：由 Google 提供的官方代理服务器，支持 Go 1.11 及以上版本。
