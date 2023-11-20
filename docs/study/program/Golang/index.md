@@ -1,4 +1,4 @@
-<!-- # Golang
+# Golang
 
 ### Go 语言设计初衷
 
@@ -53,4 +53,4 @@
 
 ### GC
 
-- [知乎-Golang 内存管理之 GC](https://zhuanlan.zhihu.com/p/593008674?utm_id=0) -->
+- [知乎-Golang 内存管理之 GC](https://zhuanlan.zhihu.com/p/593008674?utm_id=0)
