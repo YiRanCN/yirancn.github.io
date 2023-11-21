@@ -4,8 +4,28 @@ ip 命令来自 iproute 软件包，软件包提供了很多命令（rpm -ql ipr
 
 ip 命令有很多子命令，可以通过 man ip 查看
 
-link | address | addrlabel | route | rule | neigh | ntable | tunnel | tuntap | maddress | mroute | mrule | monitor | xfrm | netns | l2tp | tcp_metrics |
-token | macsec
+link - address - addrlabel - route - rule - neigh - ntable - tunnel - tuntap - maddress - mroute - mrule - monitor - xfrm - netns - l2tp - tcp_metrics -
+token - macsec
+
+查看命令的用法：
+
+- ip netns help
+- ip address help
+- ip route help
+- ip link help
+- ip neigh help
+
+查看帮助文档：
+
+- man ip-netns
+- man ip-address
+- man ip-route
+- man ip-link
+- man ip-neighbour
+
+更多命令的帮助文档可以通过以下命令查看：
+
+rpm -ql iproute |grep man
 
 ### ip netns
 

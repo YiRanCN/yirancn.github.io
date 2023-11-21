@@ -12,3 +12,7 @@ sidebar_position: 1
 - websocket 服务端
 - 短信、邮件服务
 - 集群服务、分布式服务
+
+### 参考资料
+
+- [张彦飞-上手报告｜今天聊聊腾讯目前在用的微服务架构！](https://zhuanlan.zhihu.com/p/535122950)
