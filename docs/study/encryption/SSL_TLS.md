@@ -17,3 +17,4 @@ HTTPS 协议需要到证书颁发机构 (Certificate Authority，简称 CA)申�
 ### 参考
 
 - [浅谈 SSL/TLS 工作原理](https://zhuanlan.zhihu.com/p/36981565)
+- [SSL/TLS 与 IPSec 对比](https://zhuanlan.zhihu.com/p/416587205)
