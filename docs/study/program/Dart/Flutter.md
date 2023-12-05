@@ -15,3 +15,11 @@
 ### getx
 
 - [getx](https://github.com/jonataslaw/getx/blob/master/documentation/zh_CN/state_management.md)
+
+### chart
+
+- [flchart](https://flchart.dev/)
+
+### 依赖库查询
+
+- [pub get](https://pub-web.flutter-io.cn/)
