@@ -486,6 +486,16 @@ send "\n"
 interact
 ```
 
+### 管理端接口
+
+- [官方管理端接口使用文档](https://openvpn.net/community-resources/management-interface/)
+
+### 包过滤
+
+可实现简单的防火墙控制
+
+- [openvpn 内置包过滤非官方技术文档](https://backreference.org/2010/06/18/openvpns-built-in-packet-filter/)
+
 ### 问题：连接成功后，客户端无法正常访问其他网站
 
 将 server.conf 的
