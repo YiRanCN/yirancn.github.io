@@ -26,12 +26,12 @@ function HomepageHeader() {
             <p className={styles.text3}>简单、强大、使用完全免费</p>
             <p className={styles.text3}>包含手机组态、WEB组态，支持多种协议</p>
           </div>
-          <div className={clsx("col col--6")}>
+          {/* <div className={clsx("col col--6")}>
             <div className={styles.right}>
               <div className={styles.imageBg}></div>
               <img className={styles.imageSrc} src={logoLargeImg}></img>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </header>
