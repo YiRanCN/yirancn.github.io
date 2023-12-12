@@ -63,5 +63,14 @@
   max-height: 320px;
   transform: translate(-50%,-50%);
 }
-
+@media screen and (max-width: 1023px) {
+  .right {
+    display: none;
+ }
+}
+@media screen and (max-width: 1023px) {
+  .text2 {
+    font-size: 30px;
+ }
+}
 
