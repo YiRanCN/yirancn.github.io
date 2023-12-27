@@ -12,7 +12,7 @@
 
 ### Go 语言的特色
 
-1. 高效的并发编程；
+1. 高效的并发编程（[基于 CSP](https://zh.wikipedia.org/wiki/%E9%80%9A%E4%BF%A1%E9%A1%BA%E5%BA%8F%E8%BF%9B%E7%A8%8B)）；
 2. 内存回收(GC)；
 3. 编译速度快；
 4. 函数多返回值；
@@ -50,6 +50,7 @@
 - [Go 语言设计与实现](https://draveness.me/golang/)
   - 重点是设计原理 挺底层的
 - [李文周-Go 语言学习之路/Go 语言教程](https://www.liwenzhou.com/posts/Go/golang-menu/)
+  - [fmt 格式化语法](https://www.liwenzhou.com/posts/Go/fmt/)
 
 ### GC
 
