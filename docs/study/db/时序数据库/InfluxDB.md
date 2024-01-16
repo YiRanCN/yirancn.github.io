@@ -37,10 +37,17 @@ sidebar_position: 1
 ### 快速入门
 
 ```shell
+# v2
 wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.7.5-1.x86_64.rpm
 sudo yum localinstall influxdb2-2.7.5-1.x86_64.rpm
-systemctl start influxdb2
-influx
+sudo service influxdb start
+sudo service influxdb status
+# influx
+wget https://dl.influxdata.com/influxdb/releases/influxdb2-client-2.7.3-linux-arm64.tar.gz
+tar xvzf ./influxdb2-client-2.7.3-linux-arm64.tar.gz
+sudo cp ./influx /usr/local/bin/
+
+
 > create database mydb
 > use mydb
 > show measurements
