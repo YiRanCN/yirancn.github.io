@@ -248,6 +248,7 @@ select * from datapoint_record;
 
 1. 社区版本不支持“删除指定时间范围的数据”的功能，企业版才支持，但是有些特殊情况还是需要删除数据的，可以通过增加“删除标记字段”来迂回处理这个问题。
 2. 社区版本不支持“UAF”，也就是用户自定义函数，某些特殊聚合或计算算法无法做到，不过社区版本提供的已经是绝对部分了。
+3. java client 使用 RS 怎么也连接不上，后来发现是服务端没有启动 taosadapter，使用命令 systemctl start taosadapter 启动后，java client 就可以正常连接了。
 
 ### 附录
 
