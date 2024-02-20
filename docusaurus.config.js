@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   //
   title: "YiRanCN",
-  tagline: "物联网云平台开发者",
+  tagline: "云平台开发者",
   favicon: "img/favicon.ico",
   //
   url: "https://yirancn.github.io",
@@ -75,12 +75,12 @@ const config = {
           //   position: "left",
           //   label: "技术选型",
           // },
-          {
-            type: "docSidebar",
-            sidebarId: "iotCloudSidebar",
-            position: "left",
-            label: "文档",
-          },
+          // {
+          //   type: "docSidebar",
+          //   sidebarId: "iotCloudSidebar",
+          //   position: "left",
+          //   label: "文档",
+          // },
           {
             href: "https://github.com/YiRanCN",
             label: "GitHub",
@@ -107,14 +107,14 @@ const config = {
       tagName: "meta",
       attributes: {
         name: "keywords",
-        content: "YiRanCN 物联网云平台开发者",
+        content: "YiRanCN 云平台开发者",
       },
     },
     {
       tagName: "meta",
       attributes: {
         name: "description",
-        content: "YiRanCN 物联网云平台开发者",
+        content: "YiRanCN 云平台开发者",
       },
     },
   ],

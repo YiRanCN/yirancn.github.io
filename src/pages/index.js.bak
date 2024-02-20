@@ -11,7 +11,6 @@ import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import styles from "./index.module.css";
 
 import logoLargeImg from "@site/static/img/logo-jiot.webp";
-import coverImg from "@site/static/img/cover_image.jpg";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -26,15 +25,13 @@ function HomepageHeader() {
             <p className={styles.text2}>我的开发笔记</p>
             <p className={styles.text3}>多读、多写、多分享</p>
             <p className={styles.text3}>尽可能的包含各种IT技术</p>
-            <p className={styles.text4}>个人简介：10年以上软件开发经验，擅长Web前端、Java后端等编程技术，擅长物联网云平台相关业务，擅长组建开发团队、技术管理、技术架构等。</p>
-            <p className={styles.text4}>喜欢研究，热爱编程。</p>
           </div>
-          <div className={clsx("col col--6")}>
+          {/* <div className={clsx("col col--6")}>
             <div className={styles.right}>
               <div className={styles.imageBg}></div>
-              <img className={styles.imageSrc} src={coverImg}></img>
+              <img className={styles.imageSrc} src={logoLargeImg}></img>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </header>
@@ -46,9 +43,9 @@ export default function Home() {
   return (
     <Layout title={`${siteConfig.title} - ${siteConfig.tagline}`} description="YiRanCN 云平台开发者">
       <HomepageHeader />
-      {/* <main>
+      <main>
         <HomepageFeatures />
-      </main> */}
+      </main>
     </Layout>
   );
 }
