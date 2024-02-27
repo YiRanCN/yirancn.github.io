@@ -63,6 +63,44 @@ docker system prune
 docker system prune -a
 ```
 
+### 版本太低 需要升级
+
+```shell
+# docker build 报错如下
+is not a valid repository/tag: invalid reference format
+# 检查版本 docker 版本太低
+docker version
+
+
+# 卸载旧版本
+yum -y remove docker*
+# 安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的
+sudo yum install -y yum-utils
+# 设置yum源
+yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+# 安装docker
+yum install docker-ce docker-ce-cli containerd.io
+# 配置国内docker镜像源
+mkdir -p /etc/docker
+tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": [
+  "https://kfwkfulq.mirror.aliyuncs.com",
+  "https://2lqq34jg.mirror.aliyuncs.com",
+  "https://pee6w651.mirror.aliyuncs.com",
+  "https://registry.docker-cn.com",
+  "http://hub-mirror.c.163.com"
+  ],
+  "dns": ["8.8.8.8","8.8.4.4"]
+}
+EOF
+# 重启docker
+systemctl daemon-reload
+systemctl restart docker
+# 验证docker版本
+docker version
+```
+
 ### 参考
 
 [参考 1](https://developer.aliyun.com/article/272173)
