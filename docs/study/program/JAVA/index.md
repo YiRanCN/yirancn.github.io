@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# 概述
+# Java
 
 一种使用非常广泛的跨平台编程语言。
 
