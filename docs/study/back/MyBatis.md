@@ -1,3 +1,9 @@
+### 一些经常读的官方文档
+
+- [MyBatis 官方参考文档](https://mybatis.org/mybatis-3/zh_CN/index.html)
+- [GitHub-MyBatis](https://github.com/mybatis)
+- [MyBatis integration with Spring Boot](https://github.com/mybatis/spring-boot-starter)
+
 ### MyBatis 缓存
 
 myabtis 的缓存分为一级缓存和二级缓存，默认开启一级缓存，关闭二级缓存，一级缓存时 sqlSession 级别，二级缓存是 namespace 级别。
