@@ -7,3 +7,43 @@
 - 增量收集（Incremental Collector）: 这种算法允许垃圾收集在应用进行的同时进行，减少应用的暂停时间。
 - 并发标记-清除（Concurrent Mark-Sweep, CMS）: 为了减少垃圾收集对应用的影响，出现了并发收集算法，它尝试让垃圾收集的过程并发进行。CMS 算法分为四个阶段，并发标记、并发预清理、重新标记、并发清除，尽量减少对应用的影响。
 - 改进的并发标记-清除（G1）: 为了进一步减少暂停时间和提高吞吐量，JVM 在 Java 7 Update 4 中引入了 G1 垃圾收集器。G1 尝试把堆空间划分为多个大小相等的区域，并且可以并发处理这些区域。
+
+### 查看各个版本的 GC
+
+```shell
+java -XX:+PrintCommandLineFlags -version
+java -XX:+PrintGCDetails -version
+```
+
+```shell
+java8 -XX:+PrintCommandLineFlags -version
+-XX:InitialHeapSize=268435456
+-XX:MaxHeapSize=4294967296
+-XX:+PrintCommandLineFlags
+-XX:+UseCompressedClassPointers
+-XX:+UseCompressedOops
+-XX:+UseParallelGC
+java version "1.8.0_181"
+Java(TM) SE Runtime Environment (build 1.8.0_181-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)
+```
+
+```shell
+java17 -XX:+PrintCommandLineFlags -version
+-XX:ConcGCThreads=2 
+-XX:G1ConcRefinementThreads=8 
+-XX:GCDrainStackTargetSize=64 
+-XX:InitialHeapSize=268435456 
+-XX:MarkStackSize=4194304 
+-XX:MaxHeapSize=4294967296 
+-XX:MinHeapSize=6815736 
+-XX:+PrintCommandLineFlags 
+-XX:ReservedCodeCacheSize=251658240 
+-XX:+SegmentedCodeCache 
+-XX:+UseCompressedClassPointers 
+-XX:+UseCompressedOops 
+-XX:+UseG1GC
+java version "17.0.6" 2023-01-17 LTS
+Java(TM) SE Runtime Environment (build 17.0.6+9-LTS-190)
+Java HotSpot(TM) 64-Bit Server VM (build 17.0.6+9-LTS-190, mixed mode, sharing)
+```
