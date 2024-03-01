@@ -46,7 +46,9 @@ Java Configuration Info ：查看配置参数信息，支持部分参数运行�
 
 Java Memory Map ：分析堆内存工具，导出 dump 堆内存快照
 
+```shell
 jmap -dump:live,format=b,file=heap.bin <pid>
+```
 
 ### jmod
 
