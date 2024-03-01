@@ -30,20 +30,24 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)
 
 ```shell
 java17 -XX:+PrintCommandLineFlags -version
--XX:ConcGCThreads=2 
--XX:G1ConcRefinementThreads=8 
--XX:GCDrainStackTargetSize=64 
--XX:InitialHeapSize=268435456 
--XX:MarkStackSize=4194304 
--XX:MaxHeapSize=4294967296 
--XX:MinHeapSize=6815736 
--XX:+PrintCommandLineFlags 
--XX:ReservedCodeCacheSize=251658240 
--XX:+SegmentedCodeCache 
--XX:+UseCompressedClassPointers 
--XX:+UseCompressedOops 
+-XX:ConcGCThreads=2
+-XX:G1ConcRefinementThreads=8
+-XX:GCDrainStackTargetSize=64
+-XX:InitialHeapSize=268435456
+-XX:MarkStackSize=4194304
+-XX:MaxHeapSize=4294967296
+-XX:MinHeapSize=6815736
+-XX:+PrintCommandLineFlags
+-XX:ReservedCodeCacheSize=251658240
+-XX:+SegmentedCodeCache
+-XX:+UseCompressedClassPointers
+-XX:+UseCompressedOops
 -XX:+UseG1GC
 java version "17.0.6" 2023-01-17 LTS
 Java(TM) SE Runtime Environment (build 17.0.6+9-LTS-190)
 Java HotSpot(TM) 64-Bit Server VM (build 17.0.6+9-LTS-190, mixed mode, sharing)
 ```
+
+### JVM 内存问题排查
+
+- 参考 [知乎-三万字长文：JVM 内存问题排查 Cookbook](https://zhuanlan.zhihu.com/p/679783776)
