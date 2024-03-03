@@ -68,6 +68,14 @@ JVM Process status tool：JVM 进程状态工具，查看进程基本信息
 
 Java Stack Trace ：Java 堆栈跟踪工具
 
+可以生成 JVM 当前时刻的线程快照，生成线程快照的主要目的是定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源导致的长时间等待等。
+
+```shell
+jstack -l {PID} > jstack-dump.log
+```
+
+然后 放到 [fastthread.io](https://fastthread.io/) 分析
+
 ### jstat
 
 JVM statistics monitoring tool ： JVM 统计监控工具，查看堆，GC 详细信息
