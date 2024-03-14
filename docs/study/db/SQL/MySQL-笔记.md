@@ -46,6 +46,24 @@ WITH RECURSIVE cte (n) AS
 SELECT * FROM cte;
 ```
 
+### 事件/定时任务
+
+```sql
+-- 先检查是否开启 一般都是默认关闭的
+show variables like 'event%'
+set global event_scheduler=on;
+--
+CREATE EVENT handle_server_count_schedule
+ON SCHEDULE EVERY 10 SECOND
+STARTS '2024-03-13 00:00:00.000'
+ON COMPLETION NOT PRESERVE
+ENABLE
+DO begin
+update server_count set COUNT = COUNT + (FLOOR(RAND() * 100) + 1)
+where REGION_ID in(1,2) and TENANT_NAME in('联通信创云','浪潮政务云');
+END
+```
+
 ### 参考文档
 
 - [MySQL 8.0 with 语法(cte)](https://halo.sherlocky.com/archives/mysql-8-cte)
