@@ -175,6 +175,10 @@ netstat -antp
 yum list |grep telnet
 yum -y install telnet.x86_64
 telnet 172.19.74.146 9200
+# 根据监听端口查找进程，根据进程号查找进程命令
+netstat -tulnp | grep ':端口号'
+ss -tulnp | grep ':端口号'
+ps -f -p 99382|cat
 ```
 
 ### vi/vim 中文乱码
