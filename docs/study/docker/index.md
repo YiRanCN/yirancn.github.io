@@ -25,3 +25,8 @@ sidebar_position: 1
 ### docker 官方镜像库 docker hub
 
 - [docker hub](https://hub.docker.com/)
+- [docker hub-stage](https://hub-stage.docker.com/)
+### docker 私有镜像仓库软件
+
+- [harbor](https://github.com/goharbor/harbor)
+- [docker官方私有registry](https://hub.docker.com/_/registry)
