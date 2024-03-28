@@ -101,6 +101,33 @@ systemctl restart docker
 docker version
 ```
 
+### run后保持运行状态
+
+```shell
+#
+docker run -tid \
+--privileged=true \
+--name test-ubuntu \
+ubuntu
+```
+
+### 绑定随机端口
+
+```shell
+#
+docker run -tid \
+-p :80 \
+--privileged=true \
+--name test-ubuntu \
+ubuntu
+# 重启之后 随机的端口会换掉
+docker port test-ubuntu
+# 重启之后 随机的端口会换掉
+docker restart test-ubuntu
+# 重启之后 随机的端口会换掉
+docker port test-ubuntu
+```
+
 ### 参考
 
 [参考 1](https://developer.aliyun.com/article/272173)
