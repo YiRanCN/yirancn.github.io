@@ -109,6 +109,11 @@ docker run -tid \
 --privileged=true \
 --name test-ubuntu \
 ubuntu
+#
+docker run -tid \
+--privileged=true \
+--name test-nginx \
+nginx:stable-alpine3.17-slim
 ```
 
 ### 绑定随机端口
@@ -127,6 +132,14 @@ docker restart test-ubuntu
 # 重启之后 随机的端口会换掉
 docker port test-ubuntu
 ```
+
+### dcoker save/load 保存和加载镜像
+
+对镜像的保存和加载
+
+### docker export/import 导出和导入容器
+
+对容器的导出和导入
 
 ### 参考
 
