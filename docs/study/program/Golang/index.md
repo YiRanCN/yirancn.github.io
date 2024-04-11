@@ -55,3 +55,74 @@
 ### GC
 
 - [知乎-Golang 内存管理之 GC](https://zhuanlan.zhihu.com/p/593008674?utm_id=0)
+
+### 安全编译
+
+在Go语言中，“安全编译”可能指的是使用安全的编译参数，以确保代码的安全性和性能最优。这通常涉及到使用编译器的各种安全和性能参数，比如：
+
+使用 -s 或 -w 参数来减少编译后的二进制文件大小，去掉调试信息和符号信息。
+
+使用 -ldflags 来设置链接器的标志，比如 -s -w 来进一步优化编译结果。
+
+使用 -buildmode 参数来指定编译模式，比如 pie 来生成位置无关的可执行文件，增加安全性。
+
+下面是一个简单的例子，演示如何使用 -ldflags 来优化编译结果：
+
+go build -ldflags "-s -w" -o myapp .
+
+这条命令会编译当前目录下的Go代码，并输出一个没有调试信息、符号和优化过的、体积更小的可执行文件 myapp。
+
+如果你想进一步确保安全性，可以使用Go的安全性标志，比如 -tags safe，这取决于你使用的第三方库是否支持这个tag。
+
+go build -tags safe -o myapp .
+
+请注意，每个项目可能有特定的安全和性能要求，因此编译参数应根据具体情况选择和调整。
+
+```shell
+#
+go build -ldflags "-s -w -buildmode=pie -linkmode external -extldflags=-Wl,-z,relro,-z,now" -o CcspUtilRemote-`uname -m`
+#
+go build -tags safe -o myapp .
+# 使用此命令查看
+go tool link --help
+```
+
+实际问题例子：
+
+```shell
+# 安全编译检查 出现两个问题 [STACK CANARY/FORTIFY]
+checksec --file=./xxx-x86_64
+# 处理[STACK CANARY/FORTIFY] 增加CGO 以及CGO代码文件cgo_safe.go
+CGO_ENABLED=1 CGO_CFLAGS="-fstack-protector-all -D_FORTIFY_SOURCE=2 -O"  go build -ldflags "-s -w -buildmode=pie -linkmode external -extldflags=-Wl,-z,relro,-z,now"   -o xxx-`uname -m`
+```
+
+cgo_safe.go
+
+```go
+package main
+
+import "C"
+import "fmt"
+
+func init() {
+	s := C.CString("hello")
+	fmt.Println(s)
+
+}
+
+```
+
+### 跨平台编译
+
+具体操作
+
+编译跨平台的只需要修改GOOS、GOARCH、CGO_ENABLED三个环境变量即可
+
+- GOOS：目标平台的操作系统(darwin、freebsd、linux、windows)
+- GOARCH：目标平台的体系架构32位还是64位(386、amd64、arm)
+- 交叉编译不支持 CGO 所以要禁用它
+
+### CGO
+
+- [CGO:让Go程序调用C函数的神器](https://blog.csdn.net/qq_42538588/article/details/131167683)
+- [go语言调用c语言动态库及交叉编译](https://blog.csdn.net/weixin_43128854/article/details/122956384)
