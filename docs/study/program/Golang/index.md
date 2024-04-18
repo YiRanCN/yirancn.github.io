@@ -51,6 +51,8 @@
   - 重点是设计原理 挺底层的
 - [李文周-Go 语言学习之路/Go 语言教程](https://www.liwenzhou.com/posts/Go/golang-menu/)
   - [fmt 格式化语法](https://www.liwenzhou.com/posts/Go/fmt/)
+- Go语言中文文档 ：https://www.topgoer.com/
+- GO语言设计模式 ：https://www.topgoer.cn/docs/golang-design-pattern/golang-design-pattern-1cbgha2ltg796
 
 ### GC
 
@@ -126,3 +128,27 @@ func init() {
 
 - [CGO:让Go程序调用C函数的神器](https://blog.csdn.net/qq_42538588/article/details/131167683)
 - [go语言调用c语言动态库及交叉编译](https://blog.csdn.net/weixin_43128854/article/details/122956384)
+
+### go mod 依赖问题
+
+- go mod init：初始化go mod， 生成go.mod文件，后可接参数指定 module 名，上面已经演示过。
+- go mod download：手动触发下载依赖包到本地cache（默认为$GOPATH/pkg/mod目录）
+- go mod graph： 打印项目的模块依赖结构
+- go mod tidy ：添加缺少的包，且删除无用的包
+- go mod verify ：校验模块是否被篡改过
+- go mod why： 查看为什么需要依赖
+- go mod vendor ：导出项目所有依赖到vendor下
+- go mod edit ：编辑go.mod文件，接 -fmt 参数格式化 go.mod 文件，接 -require=golang.org/x/text 添加依赖，接 -droprequire=golang.org/x/text 删除依赖，详情可参考 go help mod edit
+- go list -m -json all：以 json 的方式打印依赖详情- 
+- [Golang中GoPath和GoModule模式的区别](https://blog.csdn.net/kenkao/article/details/124550249)
+
+### 代理
+
+```shell
+#
+go env
+# 原代理
+# GOPROXY='https://proxy.golang.org,direct'
+# go模块（七牛云）代理
+go env -w GOPROXY=https://goproxy.cn,direct
+```
