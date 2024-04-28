@@ -40,6 +40,8 @@ etcdctl is a command line client for etcd.
 ./etcdctl get --prefix /apisix/routes -w simple --keys-only
 # 返回指定key
 ./etcdctl get /apisix/routes/488415811682173648
+# 更新指定key的value
+./etcdctl put /mykey "my new value" --if-exists
 ```
 
 #### 集群维护相关命令
