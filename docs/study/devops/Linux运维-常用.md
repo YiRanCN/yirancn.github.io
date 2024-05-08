@@ -94,8 +94,12 @@ yum install -y unzip zip
 ```shell
 #
 w
-#
+# 
 who
+#
+whoami
+# 查看当前用户分组
+id [user]
 ```
 
 ### 常用的 ls 命令
