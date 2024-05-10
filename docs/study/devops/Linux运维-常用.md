@@ -244,3 +244,10 @@ man pstree
 #展示进程命令行
 pstree -a
 ```
+
+### 创建大文件
+
+```shell
+fallocate -l 1G largefile
+truncate -s 1G largefile
+```
