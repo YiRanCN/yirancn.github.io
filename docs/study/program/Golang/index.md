@@ -52,7 +52,11 @@
 - [李文周-Go 语言学习之路/Go 语言教程](https://www.liwenzhou.com/posts/Go/golang-menu/)
   - [fmt 格式化语法](https://www.liwenzhou.com/posts/Go/fmt/)
 - Go语言中文文档 ：https://www.topgoer.com/
+  - 必看，非常全
 - GO语言设计模式 ：https://www.topgoer.cn/docs/golang-design-pattern/golang-design-pattern-1cbgha2ltg796
+- GO语言标准库文档：https://topgoer.cn/docs/golangstandard/golangstandard-1cmks9a4kaj3c
+- 地鼠文档，学习GO的好地方：https://www.topgoer.cn/
+  - 必看
 
 ### GC
 
@@ -103,6 +107,13 @@ cgo_safe.go
 ```go
 package main
 
+/*
+
+#include <stdio.h>
+#include <stdlib.h>
+
+*/
+
 import "C"
 import "fmt"
 
@@ -110,6 +121,8 @@ func init() {
 	s := C.CString("hello")
 	fmt.Println(s)
 
+	//   C.puts(s)
+	// C.free(unsafe.Pointer(s))
 }
 
 ```

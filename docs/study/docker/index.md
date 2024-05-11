@@ -18,6 +18,10 @@ sidebar_position: 1
 
 没什么好的办法。把这个文档多读多实践，基本上也算半个专家了。
 
+没事多看看，
+docker --help
+dockerd --hlep
+
 ### docker cli
 
 - [docker cli 官方参考文档](https://docs.docker.com/reference/cli/docker/)

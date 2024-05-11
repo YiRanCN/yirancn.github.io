@@ -251,3 +251,13 @@ pstree -a
 fallocate -l 1G largefile
 truncate -s 1G largefile
 ```
+
+### ulimit
+
+```shell
+ulimit -a
+ulimit -n
+ulimit -u
+```
+
+ - [csdn-ulimit命令详解：如何设置和查看系统资源限制](https://blog.csdn.net/llgde/article/details/133780294)

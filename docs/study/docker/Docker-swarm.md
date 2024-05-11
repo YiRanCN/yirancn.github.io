@@ -7,3 +7,7 @@ Docker Swarm 则可以在多个服务器或主机上创建容器集群服务，�
 ### 基本架构图
 
 ![基本架构图](./imgs/swarm.png)
+
+### 参考
+
+- [csdn-【Docker】Swarm学习](https://blog.csdn.net/al6nlee/article/details/130912842)

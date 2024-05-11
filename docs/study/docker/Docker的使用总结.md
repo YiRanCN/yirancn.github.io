@@ -141,6 +141,148 @@ docker port test-ubuntu
 
 对容器的导出和导入
 
+### Linux修改网络后，导致Docker容器网络出现问题
+
+- [csdn-Linux重启网络后导致容器网络无法连接的解决办法](https://blog.csdn.net/m0_61230499/article/details/137916082)
+  
+### Docker容器生成镜像
+
+```shell
+docker   commit -m="描述信息" -a="作者" 容器id 目标镜像名： [TAG]
+docker commit -m="test" -a="weic" ccsp-kms-6732855048744075908 kmstest:20016-1
+docker commit -m="test" -a="weic" ccsp-kms-6727922143110496901 kmstest:20016-2
+```
+
+也可以用于容器端口修改，先把容器生成镜像，然后再根据镜像重新创建容器
+
+146
+
+```shell
+docker run \
+-td \
+-p 10.0.101.146:23000:20100 \
+-p 10.0.101.146:23004:20102 \
+-p 10.0.101.146:23001:20121 \
+-p 10.0.101.146:23002:20122 \
+-p 10.0.101.146:23003:20134 \
+-p 10.0.101.146:20016:20016 \
+--name ccsp-kms-6681579207347144964-c \
+kmstest:20016-1 \
+/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
+```
+
+```shell
+docker run \
+-td \
+-p 10.0.101.146:23005:20100 \
+-p 10.0.101.146:23009:20102 \
+-p 10.0.101.146:23006:20121 \
+-p 10.0.101.146:23007:20122 \
+-p 10.0.101.146:23008:20134 \
+-p 10.0.101.146:20017:20016 \
+--name ccsp-kms-6727922143110496901-c \
+kmstest:20016-2 \
+/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
+```
+
+cce926337c3f   ccsp-kms-openeuler-x86:3.3.1.4.30          "/bin/bash -c 'sh /o…"   43 hours ago    Up 43 hours                   10.0.101.146:23005->20100/tcp, 10.0.101.146:23009->20102/tcp, 10.0.101.146:23006->20121/tcp, 10.0.101.146:23007->20122/tcp, 10.0.101.146:23008->20134/tcp                                  ccsp-kms-6727922143110496901
+
+147
+
+```shell
+#147
+docker commit -m="test" -a="weic" ccsp-kms-6727095949277135749 kmstest:20016-1
+docker commit -m="test" -a="weic" ccsp-kms-6725254558919033737 kmstest:20016-2
+#
+docker run \
+-td \
+-p 10.0.101.147:23000:20100 \
+-p 10.0.101.147:23004:20102 \
+-p 10.0.101.147:23001:20121 \
+-p 10.0.101.147:23002:20122 \
+-p 10.0.101.147:23003:20134 \
+-p 10.0.101.147:20016:20016 \
+--name ccsp-kms-6727095949277135749-c \
+kmstest:20016-1 \
+/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
+#
+docker run \
+-td \
+-p 10.0.101.147:23009:20100 \
+-p 10.0.101.147:23013:20102 \
+-p 10.0.101.147:23010:20121 \
+-p 10.0.101.147:23011:20122 \
+-p 10.0.101.147:23012:20134 \
+-p 10.0.101.147:20017:20016 \
+--name ccsp-kms-6725254558919033737-c \
+kmstest:20016-2 \
+/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
+```
+
+101
+
+```shell
+#147
+docker commit -m="test" -a="weic" ccsp-kms-6721501946679004930 kmstest:20016-1
+docker commit -m="test" -a="weic" ccsp-kms-6719261535470749060 kmstest:20016-2
+#
+docker run \
+-td \
+-p 10.0.101.147:23000:20100 \
+-p 10.0.101.147:23008:20102 \
+-p 10.0.101.147:23001:20121 \
+-p 10.0.101.147:23002:20122 \
+-p 10.0.101.147:23003:20134 \
+-p 10.0.101.147:20016:20016 \
+--name ccsp-kms-6721501946679004930-c \
+kmstest:20016-1 \
+/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
+#
+docker run \
+-td \
+-p 10.0.101.147:23004:20100 \
+-p 10.0.101.147:23014:20102 \
+-p 10.0.101.147:23005:20121 \
+-p 10.0.101.147:23006:20122 \
+-p 10.0.101.147:23007:20134 \
+-p 10.0.101.147:20017:20016 \
+--name ccsp-kms-6719261535470749060-c \
+kmstest:20016-2 \
+/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
+```
+
+106
+
+```shell
+#147
+docker commit -m="test" -a="weic" ccsp-kms-6721772595620220678 kmstest:20016-1
+docker commit -m="test" -a="weic" ccsp-kms-6719405569719275266 kmstest:20016-2
+#
+docker run \
+-td \
+-p 10.0.101.147:23000:20100 \
+-p 10.0.101.147:23009:20102 \
+-p 10.0.101.147:23001:20121 \
+-p 10.0.101.147:23002:20122 \
+-p 10.0.101.147:23003:20134 \
+-p 10.0.101.147:20016:20016 \
+--name ccsp-kms-6721772595620220678-c \
+kmstest:20016-1 \
+/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
+#
+docker run \
+-td \
+-p 10.0.101.147:23004:20100 \
+-p 10.0.101.147:23008:20102 \
+-p 10.0.101.147:23005:20121 \
+-p 10.0.101.147:23006:20122 \
+-p 10.0.101.147:23007:20134 \
+-p 10.0.101.147:20017:20016 \
+--name ccsp-kms-6719405569719275266-c \
+kmstest:20016-2 \
+/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
+```
+
 ### 参考
 
 [参考 1](https://developer.aliyun.com/article/272173)
