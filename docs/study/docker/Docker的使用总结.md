@@ -100,6 +100,27 @@ systemctl restart docker
 # 验证docker版本
 docker version
 ```
+```shell
+#!/bin/bash
+
+echo "stop docker"
+systemctl stop docker
+
+
+echo "uninstall rpm docker"
+rpm -e --nodeps --docfiles docker-ce-rootless-extras-26.0.0-1.el7.aarch64
+rpm -e --nodeps --docfiles docker-ce-26.0.0-1.el7.aarch64
+rpm -e --nodeps --docfiles docker-ce-cli-26.0.0-1.el7.aarch64
+rpm -e --nodeps --docfiles docker-buildx-plugin-0.13.1-1.el7.aarch64
+rpm -e --nodeps --docfiles containerd.io-1.6.28-3.2.el7.aarch64
+
+echo "rm -rf /opt/containerd /var/lib/containerd /var/lib/docker"
+rm -rf /opt/containerd
+rm -rf /var/lib/containerd
+rm -rf /var/lib/docker
+
+echo "success"
+```
 
 ### run后保持运行状态
 
@@ -149,138 +170,73 @@ docker port test-ubuntu
 
 ```shell
 docker   commit -m="描述信息" -a="作者" 容器id 目标镜像名： [TAG]
-docker commit -m="test" -a="weic" ccsp-kms-6732855048744075908 kmstest:20016-1
-docker commit -m="test" -a="weic" ccsp-kms-6727922143110496901 kmstest:20016-2
+
 ```
 
 也可以用于容器端口修改，先把容器生成镜像，然后再根据镜像重新创建容器
 
-146
 
 ```shell
+4976b73877d5   ccsp-svs-openeuler-x86:3.3.1.5.11          "/bin/bash -c 'sh /o…"   19 hours ago   Up 19 hours   10.0.101.146:21000->20010/tcp, 10.0.101.146:21003->20012/tcp, 10.0.101.146:21001->20014/tcp, 10.0.101.146:21002->20015/tcp                                  ccsp-svs-6742666177142194824
+#
+docker commit -m="test" -a="weic" ccsp-svs-6742666177142194824 svstest:20016-11
+#
+docker stop ccsp-svs-6742666177142194824
+#
 docker run \
 -td \
--p 10.0.101.146:23000:20100 \
--p 10.0.101.146:23004:20102 \
--p 10.0.101.146:23001:20121 \
--p 10.0.101.146:23002:20122 \
--p 10.0.101.146:23003:20134 \
+-p 10.0.101.146:21000:20010 \
+-p 10.0.101.146:21003:20012 \
+-p 10.0.101.146:21001:20014 \
+-p 10.0.101.146:21002:20015 \
 -p 10.0.101.146:20016:20016 \
---name ccsp-kms-6681579207347144964-c \
-kmstest:20016-1 \
+-p 10.0.101.146:20018:20018 \
+--name ccsp-svs-6742666177142194824-c \
+svstest:20016-11 \
+/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
+```
+修改shmsize  共享内存
+
+```shell
+fbaabf1d7e74   ccsp-tsc-openeuler-x86:3.3.1.3             "/bin/bash -c 'sh /o…"   4 minutes ago       Up 4 minutes       10.0.101.146:26501->8011/tcp, 10.0.101.146:26502->8099/tcp                                                                                                                                 ccsp-tsc-6745104769515389829
+#
+docker commit -m="test" -a="weic" ccsp-svs-6745104769515389829 tsctest:shmsize-1
+#
+docker stop ccsp-svs-6745104769515389829
+#
+docker run \
+-td \
+--shm-size 1gb \
+-p 10.0.101.146:26501:8011 \
+-p 10.0.101.146:26502:8099 \
+--name ccsp-svs-6745104769515389829-c \
+svstest:20016-11 \
 /bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
 ```
 
+
+### 删除几天之前的容器
+
 ```shell
-docker run \
--td \
--p 10.0.101.146:23005:20100 \
--p 10.0.101.146:23009:20102 \
--p 10.0.101.146:23006:20121 \
--p 10.0.101.146:23007:20122 \
--p 10.0.101.146:23008:20134 \
--p 10.0.101.146:20017:20016 \
---name ccsp-kms-6727922143110496901-c \
-kmstest:20016-2 \
-/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
+#!/bin/bash
+
+# 设置天数阈值
+days=2
+ 
+# 找到创建时间在几天前的容器ID
+container_ids=$(docker ps --format '{{.ID}} {{.CreatedAt}}' | awk -v days_ago=$days '$2 < "'$(date -d "$days days ago" +'%Y-%m-%d')'"' | cut -d ' ' -f1)
+ 
+# 删除这些容器
+docker rm -f $container_ids
 ```
 
-cce926337c3f   ccsp-kms-openeuler-x86:3.3.1.4.30          "/bin/bash -c 'sh /o…"   43 hours ago    Up 43 hours                   10.0.101.146:23005->20100/tcp, 10.0.101.146:23009->20102/tcp, 10.0.101.146:23006->20121/tcp, 10.0.101.146:23007->20122/tcp, 10.0.101.146:23008->20134/tcp                                  ccsp-kms-6727922143110496901
-
-147
+### 未运行的容器中的文件修改
 
 ```shell
-#147
-docker commit -m="test" -a="weic" ccsp-kms-6727095949277135749 kmstest:20016-1
-docker commit -m="test" -a="weic" ccsp-kms-6725254558919033737 kmstest:20016-2
-#
-docker run \
--td \
--p 10.0.101.147:23000:20100 \
--p 10.0.101.147:23004:20102 \
--p 10.0.101.147:23001:20121 \
--p 10.0.101.147:23002:20122 \
--p 10.0.101.147:23003:20134 \
--p 10.0.101.147:20016:20016 \
---name ccsp-kms-6727095949277135749-c \
-kmstest:20016-1 \
-/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
-#
-docker run \
--td \
--p 10.0.101.147:23009:20100 \
--p 10.0.101.147:23013:20102 \
--p 10.0.101.147:23010:20121 \
--p 10.0.101.147:23011:20122 \
--p 10.0.101.147:23012:20134 \
--p 10.0.101.147:20017:20016 \
---name ccsp-kms-6725254558919033737-c \
-kmstest:20016-2 \
-/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
-```
-
-101
-
-```shell
-#147
-docker commit -m="test" -a="weic" ccsp-kms-6721501946679004930 kmstest:20016-1
-docker commit -m="test" -a="weic" ccsp-kms-6719261535470749060 kmstest:20016-2
-#
-docker run \
--td \
--p 10.0.101.147:23000:20100 \
--p 10.0.101.147:23008:20102 \
--p 10.0.101.147:23001:20121 \
--p 10.0.101.147:23002:20122 \
--p 10.0.101.147:23003:20134 \
--p 10.0.101.147:20016:20016 \
---name ccsp-kms-6721501946679004930-c \
-kmstest:20016-1 \
-/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
-#
-docker run \
--td \
--p 10.0.101.147:23004:20100 \
--p 10.0.101.147:23014:20102 \
--p 10.0.101.147:23005:20121 \
--p 10.0.101.147:23006:20122 \
--p 10.0.101.147:23007:20134 \
--p 10.0.101.147:20017:20016 \
---name ccsp-kms-6719261535470749060-c \
-kmstest:20016-2 \
-/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
-```
-
-106
-
-```shell
-#147
-docker commit -m="test" -a="weic" ccsp-kms-6721772595620220678 kmstest:20016-1
-docker commit -m="test" -a="weic" ccsp-kms-6719405569719275266 kmstest:20016-2
-#
-docker run \
--td \
--p 10.0.101.147:23000:20100 \
--p 10.0.101.147:23009:20102 \
--p 10.0.101.147:23001:20121 \
--p 10.0.101.147:23002:20122 \
--p 10.0.101.147:23003:20134 \
--p 10.0.101.147:20016:20016 \
---name ccsp-kms-6721772595620220678-c \
-kmstest:20016-1 \
-/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
-#
-docker run \
--td \
--p 10.0.101.147:23004:20100 \
--p 10.0.101.147:23008:20102 \
--p 10.0.101.147:23005:20121 \
--p 10.0.101.147:23006:20122 \
--p 10.0.101.147:23007:20134 \
--p 10.0.101.147:20017:20016 \
---name ccsp-kms-6719405569719275266-c \
-kmstest:20016-2 \
-/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
+# 先copy出来
+docker cp {containerID}:/xxx/xxx ./xxx
+# 修改完之后 在copy进去
+docker cp ./xxx {containerID}:/xxx/xxx
 ```
 
 ### 参考
