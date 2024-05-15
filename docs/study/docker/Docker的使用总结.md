@@ -200,17 +200,17 @@ svstest:20016-11 \
 ```shell
 fbaabf1d7e74   ccsp-tsc-openeuler-x86:3.3.1.3             "/bin/bash -c 'sh /o…"   4 minutes ago       Up 4 minutes       10.0.101.146:26501->8011/tcp, 10.0.101.146:26502->8099/tcp                                                                                                                                 ccsp-tsc-6745104769515389829
 #
-docker commit -m="test" -a="weic" ccsp-svs-6745104769515389829 tsctest:shmsize-1
+docker commit -m="test" -a="weic" ccsp-tsc-6745104769515389829 tsctest:shmsize-1
 #
-docker stop ccsp-svs-6745104769515389829
+docker stop ccsp-tsc-6745104769515389829
 #
 docker run \
 -td \
 --shm-size 1gb \
 -p 10.0.101.146:26501:8011 \
 -p 10.0.101.146:26502:8099 \
---name ccsp-svs-6745104769515389829-c \
-svstest:20016-11 \
+--name ccsp-tsc-6745104769515389829-c \
+tsctest:shmsize-1 \
 /bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
 ```
 
