@@ -157,6 +157,9 @@ docker port test-ubuntu
 ### dcoker save/load 保存和加载镜像
 
 对镜像的保存和加载
+```shell
+docker load < xx.tar.xz
+```
 
 ### docker export/import 导出和导入容器
 
@@ -177,22 +180,22 @@ docker   commit -m="描述信息" -a="作者" 容器id 目标镜像名： [TAG]
 
 
 ```shell
-4976b73877d5   ccsp-svs-openeuler-x86:3.3.1.5.11          "/bin/bash -c 'sh /o…"   19 hours ago   Up 19 hours   10.0.101.146:21000->20010/tcp, 10.0.101.146:21003->20012/tcp, 10.0.101.146:21001->20014/tcp, 10.0.101.146:21002->20015/tcp                                  ccsp-svs-6742666177142194824
+4661cf0ef60f   ccsp-svs-openeuler-x86:3.3.1.5.16          "/bin/bash -c 'sh /o…"   52 minutes ago   Up 52 minutes   10.0.101.147:21008->20010/tcp, 10.0.101.147:21011->20012/tcp, 10.0.101.147:21009->20014/tcp, 10.0.101.147:21010->20015/tcp                                  ccsp-svs-6751369239214162560
 #
-docker commit -m="test" -a="weic" ccsp-svs-6742666177142194824 svstest:20016-11
+docker commit -m="test" -a="weic" ccsp-svs-6751369239214162560 svstest:20016-12
 #
-docker stop ccsp-svs-6742666177142194824
+docker stop ccsp-svs-6751369239214162560
 #
 docker run \
 -td \
--p 10.0.101.146:21000:20010 \
--p 10.0.101.146:21003:20012 \
--p 10.0.101.146:21001:20014 \
--p 10.0.101.146:21002:20015 \
--p 10.0.101.146:20016:20016 \
--p 10.0.101.146:20018:20018 \
---name ccsp-svs-6742666177142194824-c \
-svstest:20016-11 \
+-p 10.0.101.147:21008:20010 \
+-p 10.0.101.147:21011:20012 \
+-p 10.0.101.147:21009:20014 \
+-p 10.0.101.147:21010:20015 \
+-p 10.0.101.147:20016:20016 \
+-p 10.0.101.147:20018:20018 \
+--name ccsp-svs-6751369239214162560-c \
+svstest:20016-12 \
 /bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
 ```
 修改shmsize  共享内存
@@ -209,6 +212,12 @@ docker run \
 --shm-size 1gb \
 -p 10.0.101.146:26501:8011 \
 -p 10.0.101.146:26502:8099 \
+--name ccsp-tsc-6745104769515389829-c \
+tsctest:shmsize-1 \
+/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
+
+docker run \
+-td \
 --name ccsp-tsc-6745104769515389829-c \
 tsctest:shmsize-1 \
 /bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
@@ -237,6 +246,12 @@ docker rm -f $container_ids
 docker cp {containerID}:/xxx/xxx ./xxx
 # 修改完之后 在copy进去
 docker cp ./xxx {containerID}:/xxx/xxx
+```
+
+### 设置cpu数量以及内存大小
+
+```shell
+docker update --cpus 2 --memory 3g 33165b0faeb1
 ```
 
 ### 参考
