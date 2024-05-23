@@ -251,7 +251,7 @@ docker cp ./xxx {containerID}:/xxx/xxx
 ### 设置cpu数量以及内存大小
 
 ```shell
-docker update --cpus 2 --memory 3g 33165b0faeb1
+docker update --cpus 4 --memory 8g {容器名称或ID}
 ```
 
 ### 参考

@@ -75,10 +75,19 @@ firewall-cmd --reload
 nohup python ./analyse_init_stocks.py > /dev/null 2>&1 &
 ```
 
-### zip 文件
+### zip/tar 文件
 
 ```shell
+#
 yum install -y unzip zip
+# 只看不解压
+tar -tf xxx.tar.gz
+# 解压到当前目录
+tar -xzvf xxx.tar.gz
+# 解压到指定目录
+tar -xzvf xxx.tar.gz -C ./xxx/
+# 创建压缩文件
+tar -czvf ./xxx.tar.gz ./xxx
 ```
 
 ### centos 字符集问题
@@ -290,6 +299,25 @@ ipcs -q
 # 获取系统信号量的最大值设置
 cat /proc/sys/kernel/sem
 sysctl kernel.sem
+```
+
+### DNS 域名解析问题
+
+```shell
+# nameserver 8.8.8.8 #或其他域名服务器
+cat /etc/resolv.conf
+```
+
+### 时间同步
+
+```shell
+# 当前时间
+date
+# 
+# SWXA.sansec.cn/10.0.8.18 本地电脑使用的时间同步服务器
+# 保持云平台的第一台服务器和上面一致
+# 保持云平台的其他服务器和第一台保持一致即可
+sudo ntpdate 10.0.8.18
 ```
 
 

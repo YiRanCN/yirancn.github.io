@@ -39,6 +39,16 @@ ssh -v -o GSSAPIAuthentication=no ccsp@10.0.120.44
 
 生成SSH密钥对。在本地计算机的终端或命令提示符中执行以下命令来生成SSH密钥对：ssh-keygen -t rsa，这将创建一个私钥（id_rsa）和一个公钥（id_rsa.pub）。
 
+```shell
+#
+ssh-keygen -t rsa
+#
+ssh-copy-id username@remote_host
+# 特殊端口
+ssh-copy-id -p 10212 username@remote_host
+#
+```
+
 将公钥复制到目标服务器。使用ssh-copy-id命令将公钥复制到远程服务器上，例如ssh-copy-id username@remote_host，其中username是远程服务器的用户名，remote_host是远程服务器的地址或域名。
 
 测试免密登录。在本地计算机上执行ssh命令，无需输入密码，例如ssh username@remote_host，如果一切正常，则表示SSH免密登录已成功配置。
