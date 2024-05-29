@@ -320,5 +320,16 @@ date
 sudo ntpdate 10.0.8.18
 ```
 
+### 磁盘占用 删除文件但未释放空间
+
+```shell
+# 实际的磁盘占用情况
+sudo df -h
+# 实际的文件大小 如果和上面的不匹配，说明有删除文件但是空间未被释放
+sudo du -lh --max-depth=1 /
+# 进程占用文件，但是文件已被删除，文件所占磁盘空间未被释放；重启进程可以释放；
+sudo lsof | grep deleted
+```
+
 
  - [csdn-ulimit命令详解：如何设置和查看系统资源限制](https://blog.csdn.net/llgde/article/details/133780294)
