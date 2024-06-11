@@ -16,15 +16,41 @@ kafka 最新定义为：分布式流式平台，而不是单纯的消息系统�
 
 ### 常用命令
 
+参考 [quickstart](https://kafka.apache.org/quickstart)
+
+```shell
+# 进程+kafka启动方式
+tar -xzf kafka_2.13-3.7.0.tgz
+cd kafka_2.13-3.7.0
+#
+nohup bin/zookeeper-server-start.sh config/zookeeper.properties > /dev/null 2>&1 &
+#
+nohup bin/kafka-server-start.sh config/server.properties > /dev/null 2>&1 &
+#
+nohup ./chongqing.sh > /dev/null 2&>1 &
+```
+
+```shell
+#!/bin/sh
+echo -e "循环处理 ..."
+while [ 1 ]
+do
+echo '{"cloudID":"DcqcCcspgExtXcKp","orgID":1,"serviceCloudID":"HwygExtXcKp","serviceDirectoryID":"xc-kp_basicencryption_dataencryptioin_1","usedPercent":"30%","csID":6802687148295450000,"configNum":10,"serviceUsed":150,"serviceTotal":500,"serviceSpecification":50,"serviceCountUnit":"Mb/s"}' | ./bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic quickstart-events
+sleep 10s
+done
+```
+
+
 ```shell
 # 查看topic列表
-./kafka-topics.sh --list --bootstrap-server localhost:9092
+./bin/kafka-topics.sh --list --bootstrap-server localhost:9092
 # 创建topic
-./kafka-topics.sh --create --bootstrap-server localhost:9092 --topic xxx
+./bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --topic xxx
 # 创建生产者
-./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic jiot.cloud
+./bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic jiot.cloud
+./bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic quickstart-events
 # 创建消费者
-./kafka-console-consumer.sh --bootstrap-server localhost:9092 \
---topic jiot.cloud \
+./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 \
+--topic quickstart-events \
 --from-beginning
 ```
