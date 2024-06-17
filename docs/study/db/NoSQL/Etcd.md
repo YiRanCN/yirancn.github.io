@@ -38,6 +38,7 @@ etcdctl is a command line client for etcd.
 ./etcdctl get --prefix /apisix/upstreams -w fields
 # 只返回key
 ./etcdctl get --prefix /apisix/routes -w simple --keys-only
+./etcdctl get --insecure-skip-tls-verify=true --insecure-transport=false --prefix /apisix/routes -w simple --keys-only
 # 返回指定key
 ./etcdctl get /apisix/routes/488415811682173648
 # 更新指定key的value
