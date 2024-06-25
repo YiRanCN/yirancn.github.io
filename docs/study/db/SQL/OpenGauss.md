@@ -1,3 +1,12 @@
+# OpenGauss
+
+官网 https://opengauss.org/zh/
+
+对标的是PostgreSQL
+
+
+
+
 ### 修改最大连接数报错 
 
 ```shell
