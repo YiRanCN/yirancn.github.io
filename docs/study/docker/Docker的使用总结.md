@@ -254,6 +254,20 @@ docker cp ./xxx {containerID}:/xxx/xxx
 docker update --cpus 4 --memory 8g {容器名称或ID}
 ```
 
+### 清理容器和镜像
+
+```shell
+
+# 停止所有正在运行的容器
+docker stop $(docker ps -aq)
+ 
+# 删除所有容器
+docker rm $(docker ps -aq)
+ 
+# 删除所有镜像
+docker rmi $(docker images -q)
+```
+
 ### 参考
 
 [参考 1](https://developer.aliyun.com/article/272173)
