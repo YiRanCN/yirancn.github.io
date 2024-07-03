@@ -58,6 +58,7 @@ create database xxx with owner=postgres encoding='UTF-8';
 
 ### mysql迁移到postgres
 
+mysql迁移到opengauss 就相当于 mysql迁移到postgres
 ```shell
 # 在ubuntu上安装
 sudo apt-get install pgloader -y
