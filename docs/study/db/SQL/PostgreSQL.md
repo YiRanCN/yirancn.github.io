@@ -37,3 +37,33 @@ docker run \
 # 192.168.41.69是我自己的ip
 
 ```
+
+```shell
+# 在ubuntu上安装
+sudo apt-get install postgresql -y
+sudo systemctl status postgresql
+#
+passwd postgres
+#
+su - postgres
+#
+pgsql
+#
+\password postgres
+# 查看所有数据库
+\l
+# 创建数据库
+create database xxx with owner=postgres encoding='UTF-8';
+```
+
+### mysql迁移到postgres
+
+```shell
+# 在ubuntu上安装
+sudo apt-get install pgloader -y
+# 注意密码的使用，如果携带特殊字符@，可以用两个@标识
+pgloader mysql://root:yyyyyyyyy@10.20.37.101:3306/ccsp_common pgsql://postgres:yyyyyyyyyy@127.0.0.1:5432/class
+```
+
+参考文档 https://pgloader.readthedocs.io/en/latest/ref/mysql.html#using-default-settings
+
