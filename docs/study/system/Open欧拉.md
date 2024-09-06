@@ -8,3 +8,7 @@ locale -a
 # 设置字符集
 export LANG="en_US.utf8"
 ```
+
+### yum源问题
+
+- https://blog.csdn.net/lxcw_sir/article/details/140185068

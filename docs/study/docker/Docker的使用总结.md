@@ -180,28 +180,37 @@ docker   commit -m="描述信息" -a="作者" 容器id 目标镜像名： [TAG]
 
 
 ```shell
-# docker ps | grep svs   需要根据这个数据改动新容器
-a32f69aaf58d   ccsp-svs-openeuler-x86:3.3.2.6.27          "/bin/bash -c 'sh /o…"   19 hours ago   Up About a minute   
-10.20.18.50:21000->20010/tcp, 10.20.18.50:21003->20012/tcp, 10.20.18.50:21001->20014/tcp, 10.20.18.50:21002->20015/tcp                                 
-ccsp-svs-6890163980627742089
-# 生成镜像
-docker commit -m="test" -a="weic" ccsp-svs-6890163980627742089 svstest:20016-12
-# 停止并改名老的
-docker stop ccsp-svs-6890163980627742089
-docker rename ccsp-svs-6890163980627742089 ccsp-svs-6890163980627742089-bak
-# IP得改 前后两个端口得改 映射的20016、20018前后两个端口可以不用动 默认2核4g
+# 给容器开放新的端口 参考流程 参考呀  有些参数根据实际情况自己改一下
+####################### 1 拿到要改的容器的信息 xxx自己填
+docker ps | grep xxx
+# 将得到以下信息
+df4e7ec48125   ccsp-pki-openeuler-x86:3.3.2.8.12   "/bin/bash -c 'sh /o…"   2 minutes ago   Up About a minute   10.0.101.57:20000->20000/tcp, 10.0.101.57:20003->20002/tcp, 10.0.101.57:20001->20004/tcp, 10.0.101.57:20002->20005/tcp   ccsp-pki-7034940635376781061
+####################### 2 生成镜像 【ccsp-pki-7034940635376781061】为步骤一得到的信息
+docker commit -m="test" -a="weic" ccsp-pki-7034940635376781061 pkitest:weic
+####################### 3 停止并改名老的 【ccsp-pki-7034940635376781061】为步骤一得到的信息
+docker stop ccsp-pki-7034940635376781061
+docker rename ccsp-pki-7034940635376781061 ccsp-pki-7034940635376781061-bak
+####################### 4 IP得改 前后两个端口得改  默认2核4g 增加自己要暴漏的端口  端口映射参考步骤一的信息，不能错了
 docker run \
 -td \
--p 10.20.18.50:21000:20010 \
--p 10.20.18.50:21003:20012 \
--p 10.20.18.50:21001:20014 \
--p 10.20.18.50:21002:20015 \
--p 10.20.18.50:20016:20016 \
--p 10.20.18.50:20018:20018 \
+-p 10.0.101.57:20000:20000 \
+-p 10.0.101.57:20003:20002 \
+-p 10.0.101.57:20001:20004 \
+-p 10.0.101.57:20002:20005 \
+-p 10.0.101.57:5115:5115 \
 --cpus 2 \
 --memory 4g \
---name ccsp-svs-6890163980627742089 \
-svstest:20016-12 \
+--name ccsp-pki-7034940635376781061 \
+pkitest:weic \
+/bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
+```
+
+快速启动
+
+```shell
+docker run \
+-td \
+7e194fa07d77 \
 /bin/bash -c "sh /opt/sansec/ccsp/startService.sh&bash"
 ```
 

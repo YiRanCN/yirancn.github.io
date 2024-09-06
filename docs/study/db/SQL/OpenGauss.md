@@ -57,3 +57,32 @@ docker restart f37c6d33715e
 docker ps -a | grep opengauss
 /var/lib/opengauss/data/postgresql.conf
 ```
+
+
+### max_dynamic_memory 内存不足
+
+```shell
+#
+su omm
+#
+gs_om -t status --detail
+gs_om -t start
+gs_om -t stop
+#
+gs_guc reload -N all -I all -c 'default_transaction_read_only = off'
+gs_guc reload -N all -I all -c 'default_transaction_read_only = on'
+#
+gs_ctl stop -D /opt/openGauss5.0/install/data/dn
+gs_ctl start -D /opt/openGauss5.0/install/data/dn
+gs_ctl restart -D /opt/openGauss5.0/install/data/dn
+
+gs_ctl start -D /home/omm/data/dn1
+gs_ctl stop -D /home/omm/data/dn1
+#
+SHOW data_directory;
+#
+gsql -d postgres -p 5432
+#
+alter system set data_directory='/home/omm/data/dn1';
+alter system set data_directory='/opt/openGauss5.0/install/data/dn';
+```
