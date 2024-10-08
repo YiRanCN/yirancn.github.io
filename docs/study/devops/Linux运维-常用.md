@@ -267,6 +267,21 @@ truncate -s 1G largefile
 ulimit -a
 ulimit -n
 ulimit -u
+##############################################################################################
+#
+echo "* soft nproc 65535"  >> /etc/security/limits.conf
+echo "* hard nproc 65535"  >> /etc/security/limits.conf
+echo "* hard nofile 65535"  >> /etc/security/limits.conf
+echo "* soft nofile 65535"  >> /etc/security/limits.conf
+# 如果有就修改
+vi /etc/security/limits.d/20-nproc.conf
+# *          soft    nproc     65535
+# 系统及修改
+echo "fs.file-max=6553500" >> /etc/sysctl.conf
+# 改完之后 重新打开shell
+ulimit -a
+##############################################################################################
+
 ```
 
 ### ipcs 进程通信【共享内存、消息队列、信号量】
@@ -317,6 +332,7 @@ date
 # SWXA.sansec.cn/10.0.8.18 本地电脑使用的时间同步服务器
 # 保持云平台的第一台服务器和上面一致
 # 保持云平台的其他服务器和第一台保持一致即可
+ntpdate time.nist.gov
 sudo ntpdate 10.0.8.18
 ```
 
