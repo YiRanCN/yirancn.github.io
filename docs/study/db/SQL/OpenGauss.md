@@ -4,6 +4,44 @@
 
 对标的是PostgreSQL
 
+### 常用的工具
+
+- gsql 这是 OpenGauss 数据库的交互式客户端工具，用于连接数据库并执行 SQL 命令。\q（在 gsql 中使用）：用于退出gsql交互式客户端。
+- gs_dump 用于备份数据库。
+- gs_dumpall：用于备份整个数据库系统，包括所有数据库和用户信息等。
+- gs_restore：用于恢复数据库备份。
+- gs_om是 OpenGauss 数据库提供的一个重要的运维管理工具。它主要用于数据库***集群***的安装、启动、停止、状态查看以及配置管理等操作，帮助管理员高效地维护 OpenGauss 数据库环境。
+  - gs_om --help 不同版本，可能参数不一样，使用此命令具体查看
+  - gs_om -t start 它会按照预先配置的方式启动整个 OpenGauss 数据库集群。在启动过程中，gs_om会检查集群节点的状态，依次启动各个节点上的数据库服务。
+  - gs_om -t stop 停止集群
+  - gs_om -t status 查看集群状态
+  - gs_om -t refreshconf 重新加载集群配置
+- gs_ctl gs_ctl是 OpenGauss 数据库中的一个重要的控制工具。它主要用于对单个数据库节点进行管理和控制，包括启动、停止、重启数据库实例，以及检查数据库状态、故障恢复等操作。
+  - gs_ctl --help 不同版本，可能参数不一样，使用此命令具体查看
+  - gs_ctl start -D DATADIR 启动
+  - gs_ctl stop -D DATADIR 停止
+  - gs_ctl restart -D DATADIR 重启
+  - gs_ctl status -D DATADIR 状态检查
+  - gs_ctl reload -D DATADIR 重新加载配置文件，而无需重启
+  - cat postgresql.conf|grep -v '^\s*#'|grep -v "^$"  查看配置文件去掉注释行
+- 物理备份 gs_basebackup
+- 逻辑备份 gs_dump gs_dumpall，没有增量备份
+
+### 如何查看版本
+
+执行SQL，select version();
+
+### 如何查看最大连接数
+
+执行SQL，SELECT * FROM pg_settings WHERE name = 'max_connections';
+
+### 如何修改最大连接数
+
+修改postgresql.conf文件的max_connections参数
+
+不一定会成功，需要查看日志或者再查询一遍看看效果
+
+
 
 
 
@@ -32,57 +70,26 @@
 2024-05-14 10:02:06.342 [unknown] [unknown] localhost 140450292528512 0[0:0#0]  0 [BACKEND] LOG:  FiniNuma allocIndex: 0.
 ```
 
-```shell
-[root@f37c6d33715e /]# ipcs -ls
+上面的报错是因为宿主机的信号量设置的太小了
 
+```shell
+# 在宿主机执行 查看信号量相关设置
+sysctl -a|grep sem
+ipcs -ls
+cat  /proc/sys/kernel/sem
+# 结果如下
 ------ Semaphore Limits --------
 max number of arrays = 128
 max semaphores per array = 250
 max semaphores system wide = 32000
 max ops per semop call = 32
 semaphore max value = 32767
-
-[root@f37c6d33715e /]# cat  /proc/sys/kernel/sem
-250     32000   32      128
 ```
 
 ```shell
-修改 vi /etc/sysctl.conf 的以下参数
+#修改 vi /etc/sysctl.conf 的以下参数
 kernel.sem = 50100 128256000 50100 2560
+#
 sysctl -p 生效
-重启数据库即可
-docker cp ./postgresql.conf f37c6d33715e:/var/lib/opengauss/data/postgresql.conf
-docker cp ./sysctl.conf f37c6d33715e:/etc/sysctl.conf
-docker restart f37c6d33715e
-docker ps -a | grep opengauss
-/var/lib/opengauss/data/postgresql.conf
-```
-
-
-### max_dynamic_memory 内存不足
-
-```shell
-#
-su omm
-#
-gs_om -t status --detail
-gs_om -t start
-gs_om -t stop
-#
-gs_guc reload -N all -I all -c 'default_transaction_read_only = off'
-gs_guc reload -N all -I all -c 'default_transaction_read_only = on'
-#
-gs_ctl stop -D /opt/openGauss5.0/install/data/dn
-gs_ctl start -D /opt/openGauss5.0/install/data/dn
-gs_ctl restart -D /opt/openGauss5.0/install/data/dn
-
-gs_ctl start -D /home/omm/data/dn1
-gs_ctl stop -D /home/omm/data/dn1
-#
-SHOW data_directory;
-#
-gsql -d postgres -p 5432
-#
-alter system set data_directory='/home/omm/data/dn1';
-alter system set data_directory='/opt/openGauss5.0/install/data/dn';
+#重启数据库即可
 ```

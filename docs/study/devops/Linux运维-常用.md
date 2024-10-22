@@ -109,6 +109,13 @@ who
 whoami
 # 查看当前用户分组
 id [user]
+id 
+# 查看所有用户
+getent passwd
+# 查看所有分组
+getent group
+# 查看某个用户分组
+groups [user]
 ```
 
 ### 常用的 ls 命令
@@ -175,6 +182,9 @@ top
 cat /etc/redhat-release
 #查看内核/操作系统/CPU信息：
 uname -a
+# 查看操作系统
+cat /etc/issue
+cat /etc/os-release
 ```
 
 ### 端口/连接
@@ -346,6 +356,16 @@ sudo du -lh --max-depth=1 /
 # 进程占用文件，但是文件已被删除，文件所占磁盘空间未被释放；重启进程可以释放；
 # 存在这种情况的例子就是，启动进程 > 日志文件 2>&1 这个日志文件被删了之后不能够有效释放
 sudo lsof | grep deleted
+```
+
+### 如何查看系统日志
+
+```shell
+# 通过文件
+tail -f /var/log/syslog
+tail -f /var/log/messages
+# 通过 journalctl 
+journalctl -x | grep aaa
 ```
 
 
