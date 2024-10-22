@@ -267,5 +267,6 @@ curl -i http://10.0.101.150:9091/apisix/prometheus/metrics
 
 # 参考
 
-https://blog.csdn.net/zcs2312852665/article/details/137352254
+- https://blog.csdn.net/zcs2312852665/article/details/137352254
+- https://www.cnblogs.com/Chary/p/18050607
 
