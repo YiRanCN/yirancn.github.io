@@ -17,3 +17,16 @@ sysctl -w xxxxx=yyy
 
 常用的内核参数 
 
+### /etc/profile /etc/bashrc
+
+系统级别的配置文件、环境变量
+
+所有用户都以这个为基础
+
+修改后，需要重新登录
+
+### ~/.bashrc ~/.bash_profile
+
+用户级别的配置文件、环境变量
+
+用户登录后，会执行这些文件

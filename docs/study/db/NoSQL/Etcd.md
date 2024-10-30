@@ -18,6 +18,8 @@ ETCD存储数据量默认为2GB，最大可以设置为8GB。针对ETCD存储数
 
 [官方文档](https://etcd.io/docs/v3.5/)
 
+故障模式 https://etcd.io/docs/v3.5/op-guide/failures/
+
 ### etcdctl
 
 etcdctl is a command line client for etcd.
@@ -47,11 +49,11 @@ etcdctl is a command line client for etcd.
 
 #### 集群维护相关命令
 ```shell
-# 集群内所有节点
+# 集群内所有节点 
 ./etcdctl member list -w table
 # 集群内所有节点状态
 ./etcdctl endpoint --cluster health
-# 集群内所有节点状态
+# 集群内所有节点状态 会有哪个是领导者、学习者
 ./etcdctl -w table endpoint --cluster status
 # 报警列表
 ./etcdctl alarm list
