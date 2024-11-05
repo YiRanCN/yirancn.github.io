@@ -232,6 +232,9 @@ enabled = true
 allow_embedding = true
 ```
 
+
+使用prometheus收集apisix的指标信息，除了收集也可以有简单的web界面、图表展示
+
 ```shell
 #
 docker pull prom/prometheus
@@ -239,18 +242,22 @@ docker pull prom/prometheus
 docker run -d \
 --name prometheus \
 -p 9090:9090        \
-prom/prometheus:24.9.27 
+-v /etc/localtime:/etc/localtime \
+prom/prometheus:latest 
 #
 vi /etc/prometheus/prometheus.yml 
-#
+# 进入容器增加
 - job_name: 'apisix'
     scrape_interval: 10s
     metrics_path: '/apisix/prometheus/metrics'
     static_configs:
       - targets: ['10.0.101.150:9091']
 ```
+
+需要apisix打开直销信息收集接口
+
 ```shell
-#
+# 修改apisix的配置文件 打开Prometheus
 vi config-default.yaml
 #
 enable_export_server: true              # Enable the Prometheus export server.
