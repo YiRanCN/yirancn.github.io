@@ -14,3 +14,9 @@ systemd和init是Linux系统中用于启动和管理系统的两个不同工具�
 
 - [Docker服务systemd配置文件详解](https://blog.csdn.net/qq_46207024/article/details/134006150)
 - [配置 Docker 的 cgroup driver 为 systemd](https://zhuanlan.zhihu.com/p/633832183)
+
+### 进程管理工具 supervisord
+
+Supervisord 是一个用 Python 编写的进程管理工具，主要用于在类 Unix 系统（如 Linux、macOS 等）下对长时间运行的进程进行管理。它可以方便地启动、停止、重启一个或多个进程，并且能够在进程意外退出时自动重启，确保进程的持续运行。例如，在一个 Web 服务器环境中，它可以管理如 Nginx、uWSGI 等进程；在数据处理场景下，能管理数据采集、清洗等长时间运行的进程。
+
+官网 http://supervisord.org/
