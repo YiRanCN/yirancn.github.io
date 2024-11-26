@@ -368,5 +368,13 @@ tail -f /var/log/messages
 journalctl -x | grep aaa
 ```
 
+### 快速压缩 多线程压缩
+
+```shell
+#
+tar -cf - ./hadoop-3.3.6 | pigz -p 8 > hadoop-3.3.6.tar.gz
+```
+
 
  - [csdn-ulimit命令详解：如何设置和查看系统资源限制](https://blog.csdn.net/llgde/article/details/133780294)
+
