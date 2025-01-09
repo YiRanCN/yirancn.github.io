@@ -2,6 +2,10 @@
 
 官网 https://opengauss.org/zh/
 
+文档 https://docs.opengauss.org/zh/
+
+集群方案 https://docs.opengauss.org/zh/docs/5.0.0/docs/DatabaseAdministrationGuide/openGauss%E5%B8%B8%E8%A7%81%E4%B8%BB%E5%A4%87%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88%E7%AE%80%E4%BB%8B.html
+
 对标的是PostgreSQL
 
 ### 常用的工具
@@ -23,6 +27,8 @@
   - gs_ctl restart -D DATADIR 重启
   - gs_ctl status -D DATADIR 状态检查
   - gs_ctl reload -D DATADIR 重新加载配置文件，而无需重启
+  - gs_ctl query -D DATADIR 查询节点信息
+  - gs_ctl switchover -D DATADIR 在备节点执行，备节点会切换到主节点
   - cat postgresql.conf|grep -v '^\s*#'|grep -v "^$"  查看配置文件去掉注释行
 - 物理备份 gs_basebackup
 - 逻辑备份 gs_dump gs_dumpall，没有增量备份
@@ -93,3 +99,34 @@ kernel.sem = 50100 128256000 50100 2560
 sysctl -p 生效
 #重启数据库即可
 ```
+
+### rdtscp指令集问题
+
+OpenEluer确保安装rdtscp指令集，否则无法安装OpenGauss数据库
+
+```shell
+# 如何查看当前系统是否执行rdtscp
+cat /boot/config-$(uname -r) | grep TSC
+cat /boot/config-$(uname -r) | grep PERF_EVENT
+```
+
+### 商业发行版
+
+https://www.mogdb.io/  https://enmotech.com/
+
+MogDB是云和恩墨基于openGauss开源数据库进行完善增强的企业发行版。它围绕高性能、高可用、全密态、自动化运维、多数据库兼容等企业需求，应对企业用户需求新一代数据库的应用场景。其核心价值是高安全、高性能、高兼容、易运维和全天候的企业支持。
+
+https://www.vastdata.com.cn/ 海量数据
+
+Vastbase G100 基于openGauss内核的企业级关系型数据库
+
+### shell通过gsql查询
+
+```shell
+# 
+echo -e "\pset format unaligned\nSHOW ALL;" > show_all.sql
+# 通过此种方式查询出来的数据的格式很好看的
+gsql -p 5432 -U sansec -W passwordxxx -f show_all.sql
+```
+
+

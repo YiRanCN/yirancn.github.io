@@ -375,6 +375,47 @@ journalctl -x | grep aaa
 tar -cf - ./hadoop-3.3.6 | pigz -p 8 > hadoop-3.3.6.tar.gz
 ```
 
+### shell解析json
+
+下载jq，https://github.com/jqlang/jq/releases
+```shell
+vi data.json
+#输入
+{
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+#
+cat data.json | ./jq-linux-arm64 '.name'
+```
+
+### swap交换分区
+
+```shell
+# 这个文件记录哪些磁盘或文件系统用于交换分区
+cat /etc/fstab
+# 开启交换分区
+swapon -a
+# 关闭交换分区
+swapoff -a
+# 如何查看是否开启swap
+free -h
+swapon -s
+cat /proc/swaps
+```
+
+### history记录
+
+某些系统因为安全需求会关闭history
+
+```shell
+# 
+vim /etc/profile
+# 编辑
+HISTSIZE=0
+HISTFILESIZE=0
+```
 
  - [csdn-ulimit命令详解：如何设置和查看系统资源限制](https://blog.csdn.net/llgde/article/details/133780294)
 

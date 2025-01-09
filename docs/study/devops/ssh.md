@@ -54,3 +54,24 @@ ssh-copy-id -p 10212 username@remote_host
 测试免密登录。在本地计算机上执行ssh命令，无需输入密码，例如ssh username@remote_host，如果一切正常，则表示SSH免密登录已成功配置。
 
 此外，在目标服务器上，可能需要配置SSH服务以允许免密登录，这通常涉及编辑/etc/ssh/sshd_config文件，并添加RSAAuthentication和PubkeyAuthentication选项，并重启SSH服务。
+
+### ssh远程执行本地的脚本文件
+
+```shell
+# 在脚本中执行会存在问题，报错Pseudo-terminal will not be allocated because stdin is not a terminal.
+# 免密的情况
+ssh -t ccsp@10.20.37.222 bash -s < /opt/xxx.sh [参数1] [参数...]
+# 非免密的情况
+expect -c "
+set timeout 10;
+spawn ssh -p $port -t $user@$ip bash -s < /opt/xxx.sh [参数1] [参数...];
+expect {
+    \"password:\" {send \"$pwd\r\";}
+    \"yes/no\" {send \"yes\r\"; exp_continue;}
+};
+expect \"$\";
+send \"$remote_command\r\";
+expect \"$\";
+send \"exit\r\";
+"
+```

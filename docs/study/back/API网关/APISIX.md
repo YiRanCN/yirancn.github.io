@@ -268,7 +268,41 @@ port: 9091                            # Set the port.
 curl -i http://10.0.101.150:9091/apisix/prometheus/metrics
 ```
 
+### 如何查看apisix的版本
 
+```shell
+cat /opt/ccsp/apisix/apisix/core/version.lua
+/opt/ccsp/apisix/deps/bin/apisix version
+```
+
+### 四种部署模式
+
+"traditional", "control_plane", "data_plane", "standalone"
+
+- 传统模式
+- 控制模式，管理接口
+- 数据模式，业务接口
+- 单机模式
+
+### 内存排除
+
+```shell
+先查到worker进程内存信息
+ps -ef|grep `ps -ef|grep /bin/openresty |grep apisix|grep -v grep|awk '{print $2}'`|grep worker|awk '{ system("ps -aux| grep " $2) }'|grep -v grep
+
+再查找各worker进程的内存分配情况，找到异常的内存地址块，记录首地址StartAddress
+pmap -XX {PID}
+
+再根据地址块首地址找到地址块的首尾地址：StartAddress-EndAddress
+cat /proc/{PID}/maps
+
+通过gdb抓取该地址块的内存快照
+gdb attach {PID}
+(gdb) dump memory /root/37.211_72508c9b2000-72508e933000_20250105145100.dump 0x首地址 0x尾地址
+
+查看快照内容
+strings -n 12 37.211_72508c9b2000-72508e933000_20250105145100.dump
+```
 
 
 

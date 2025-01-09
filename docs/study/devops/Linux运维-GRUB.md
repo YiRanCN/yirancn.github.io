@@ -7,3 +7,10 @@
 可以设置内核参数
 
 如果Docker info返回WARNING: No swap limit support 可以通过此设置解决
+
+```shell
+# 查询系统是否启用了swap memory
+/sys/fs/cgroup/memory/memory.swappiness
+# 不一定有 不准 主要还得看上面的
+cat /proc/cmdline
+```

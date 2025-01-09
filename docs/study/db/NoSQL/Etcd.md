@@ -45,6 +45,10 @@ etcdctl is a command line client for etcd.
 ./etcdctl get /apisix/routes/488415811682173648
 # 更新指定key的value
 ./etcdctl put /mykey "my new value" --if-exists
+# 如果配置了tls需要增加参数
+--insecure-skip-tls-verify=true --insecure-transport=false
+# 全局监控数据更新
+./etcdctl watch --prefix / --insecure-skip-tls-verify=true --insecure-transport=false -w simple
 ```
 
 #### 集群维护相关命令

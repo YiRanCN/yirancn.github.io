@@ -28,3 +28,12 @@ fio --name=rand-write --filename=/dev/sda --direct=1 --rw=write --bs=4k --size=5
 # 以纳秒（ns）、微秒（μs）或毫秒（ms）为单位，代表每个 I/O 操作从发起请求到完成的时间。例如，平均写入延迟为 100μs，表示每个写入请求平均需要 100 微秒才能完成。较低的延迟表示存储设备能够更快地响应 I/O 请求。
 
 ```
+
+### time dd
+
+```shell
+# 测试写入
+time dd if=/dev/zero of=testfile.txt bs=1M count=10000 
+# 测试读取
+time dd if=testfile.txt of=/dev/null bs=1M count=10000 && rm testfile.txt
+```
