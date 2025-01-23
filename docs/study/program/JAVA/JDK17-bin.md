@@ -18,6 +18,19 @@ jarsigner 命令是 Java 开发工具中用于对 JAR 文件进行签名的重�
 
 ### javap
 
+解释：
+
+javap：是 Java 的类文件反汇编器，用于解析 .class 文件并输出其信息。
+
+-private：显示所有类和成员，包括私有的。如果你只想看公共的，可以使用 -public 选项。
+
+-classpath your-jar-file.jar：指定类路径，也就是你的 JAR 包的位置。
+
+com.example.YourClass：是你要查看的类的全限定名。
+
+```shell
+javap -private -classpath etcdwrapper-2.6.4.2-SNAPSHOT.jar com.sansec.ccsp.ServiceEtcdStub
+```
 ### jcmd
 
 ### jconsole

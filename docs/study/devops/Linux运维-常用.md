@@ -202,6 +202,8 @@ telnet 172.19.74.146 9200
 netstat -tulnp | grep ':端口号'
 ss -tulnp | grep ':端口号'
 ps -f -p 99382|cat
+# 根据IP排序
+netstat -an | awk '{print $5}' | awk -F ':' '{print $1}' | grep -v '^[^0-9]' | sort | uniq -c | sort -nr | head -n 10
 ```
 
 ### vi/vim 中文乱码
@@ -317,7 +319,7 @@ ipcs命令主要显示消息队队列、共享内存和信号量的信息。这�
 ipcs
 # 只显示信号量 nsems信号量集中的信号量数
 ipcs -s
-# 只显示内存
+# 只显示共享内存 其中nattch=0表示此共享内存占用进程为0但是未被回收，可通过ipcs -m [shmid]来回收
 ipcs -m
 # 只显示消息队列
 ipcs -q
@@ -418,4 +420,10 @@ HISTFILESIZE=0
 ```
 
  - [csdn-ulimit命令详解：如何设置和查看系统资源限制](https://blog.csdn.net/llgde/article/details/133780294)
+
+### kill好多进程
+
+```shell
+ps -ef|grep nginx |grep -v grep|awk '{print $2}'|xargs kill -9
+```
 

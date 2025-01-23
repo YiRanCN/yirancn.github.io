@@ -304,7 +304,9 @@ gdb attach {PID}
 strings -n 12 37.211_72508c9b2000-72508e933000_20250105145100.dump
 ```
 
+### Nginx变量
 
+https://nginx.org/en/docs/varindex.html
 
 # 参考
 
