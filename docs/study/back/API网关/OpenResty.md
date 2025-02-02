@@ -7,3 +7,5 @@ OpenResty® 的目标是让你的Web服务直接跑在 Nginx 服务内部，充�
 
 https://openresty.org/cn/
 
+https://github.com/openresty/openresty
+

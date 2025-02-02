@@ -129,4 +129,27 @@ echo -e "\pset format unaligned\nSHOW ALL;" > show_all.sql
 gsql -p 5432 -U sansec -W passwordxxx -f show_all.sql
 ```
 
+### 处理内存不足异常
+
+https://docs.opengauss.org/zh/docs/5.0.0/docs/DatabaseOMGuide/%E5%86%85%E5%AD%98%E4%B8%8D%E8%B6%B3%E9%97%AE%E9%A2%98.html
+
+```shell
+# 默认可以使用5432端口登录
+gsql -p 5432 -U username_xxx -W pwd_xxx -d instance_name
+# 如果内存不足登录不了，可以使用5433端口（端口+1）登录
+gsql -p 5433 -U username_xxx -W pwd_xxx -d instance_name
+# 报错了，没调通
+select * from gs_total_memory_detail;
+# 
+select contextname, sum(totalsize)/1024/1024 sum, sum(freesize)/1024/1024, count(*) count from gs_shared_memory_detail group by contextname order by sum desc limit 10;
+#
+select contextname, sum(totalsize)/1024/1024 sum, sum(freesize)/1024/1024, count(*) count from gs_session_memory_detail group by contextname order by sum desc limit 10;
+
+```
+
+### 数据库进入只读模式
+
+https://docs.opengauss.org/zh/docs/5.0.0/docs/DatabaseOMGuide/%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E8%BE%BE%E5%88%B0%E9%98%88%E5%80%BC-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%AA%E8%AF%BB.html
+
+
 
