@@ -9,3 +9,7 @@ https://openresty.org/cn/
 
 https://github.com/openresty/openresty
 
+安装及源码编译
+
+https://openresty.org/en/installation.html
+

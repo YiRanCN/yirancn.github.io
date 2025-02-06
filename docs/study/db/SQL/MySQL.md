@@ -1,3 +1,9 @@
+### 概述
+
+源码下载 
+
+https://downloads.mysql.com/archives/community/
+
 ### 版本选择
 
 当前比较稳定版本是5.6、5.7和8.0，如果是新项目当然是用8.0；6.0就是个废弃版本，7.x是NDB Cluster版；
