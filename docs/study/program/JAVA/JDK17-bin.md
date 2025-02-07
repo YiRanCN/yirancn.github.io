@@ -33,6 +33,30 @@ javap -private -classpath etcdwrapper-2.6.4.2-SNAPSHOT.jar com.sansec.ccsp.Servi
 ```
 ### jcmd
 
+```shell
+# 列出所有 Java 进程
+# 如果查询不到，可能是ll /tmp/hsperfdata_ccsp下的临时文件被删除了
+jcmd -l
+# 查看命令帮助信息 有很多
+jcmd <pid> help
+# 生成堆转储文件 可以使用Java Visual VM分析
+jcmd <pid> GC.heap_dump <filename>
+jcmd 1234 GC.heap_dump /path/to/heapdump.hprof
+# 执行垃圾回收
+jcmd <pid> GC.run
+# 查看堆内存信息
+jcmd <pid> GC.heap_info
+# 查看类加载信息
+jcmd <pid> VM.classloader_stats
+# 查看 JVM 配置信息
+jcmd <pid> VM.flags
+# 返回信息：-XX:CICompilerCount=3 -XX:InitialHeapSize=249561088 -XX:MaxHeapSize=3990880256 -XX:MaxNewSize=1330118656 -XX:MinHeapDeltaBytes=524288 -XX:NewSize=82837504 -XX:OldSize=166723584 -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseParallelGC 
+# 查看线程堆栈信息
+jcmd <pid> Thread.print
+#
+jcmd <pid> VM.command_line
+```
+
 ### jconsole
 
 jconsole 提供了可视化的方式来获取有关 Java 应用程序的各种信息，包括内存使用情况、线程活动、GC 行为等重要指标。它还允许远程连接到运行中的 Java 进程，提供对远程应用程序的监控和管理能力。
@@ -44,6 +68,8 @@ jconsole 提供了可视化的方式来获取有关 Java 应用程序的各种�
 ### jdeps
 
 ### jfr
+
+Java Flight Recorder（JFR）是Java虚拟机（JVM）内置的性能分析工具，用于收集和分析Java应用程序的运行时数据。JFR能够以极低的性能开销记录应用程序的运行状态，帮助开发者和运维人员诊断性能问题、内存泄漏、线程争用等。
 
 ### jhsdb
 
@@ -60,7 +86,8 @@ Java Configuration Info ：查看配置参数信息，支持部分参数运行�
 Java Memory Map ：分析堆内存工具，导出 dump 堆内存快照
 
 ```shell
-jmap -dump:live,format=b,file=heap.bin <pid>
+# 导出文件后 可以使用JDK自带的Java Visual VM加载打开
+jmap -dump:format=b,file=./heapdump.hprof <pid>
 ```
 
 ### jmod
