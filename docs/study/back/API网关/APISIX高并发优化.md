@@ -1,3 +1,8 @@
+
+
+首先，CPU越多，并发数量越多
+
+
 ### 配置上游服务的keep-alive
 
 ```shell
@@ -66,3 +71,25 @@ server.undertow.keep-alive-timeout=5000000
     "create_time": 1729748682,
     "update_time": 1729818639
 }
+
+### 关闭日志输出
+
+```shell
+enable_access_log: false
+```
+
+### 修改work数量
+
+```shell
+# 设置为CPU的数量
+worker_processes: 24
+```
+
+
+### 修改每个work能处理的最大连接数
+
+```shell
+# 
+worker_connections: 10000
+worker_rlimit_nofile: 20000
+```
