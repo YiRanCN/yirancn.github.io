@@ -56,10 +56,13 @@ jcmd <pid> Thread.print
 #
 jcmd <pid> VM.command_line
 # VM.native_memory 注意启动java进程需要增加参数-XX:NativeMemoryTracking=detail，且这个参数必须在java命令后的第一位置
-# option1 = summry 统计信息
-# option1 = baseline 设置基线 可以通过再次使用summary.diff来比较
-# option2 = scale=MB 修改单位 默认KB
-jcmd <pid> VM.native_memory option1 option2
+# [options]：可选参数，用于指定输出的详细程度和其他选项，常见的选项有：
+# summary：以摘要形式输出本地内存使用情况，这是默认选项。
+# detail：以详细模式输出，会展示更多关于本地内存分配的信息。
+# baseline：创建一个内存使用的基线，后续可以使用 diff 选项与该基线进行比较。
+# diff：与之前创建的基线进行比较，显示内存使用的变化情况。
+# scale=[KB|MB|GB]：指定输出内存大小的单位，默认是字节。
+jcmd <pid> VM.native_memory [options]
 ```
 
 ### jconsole
