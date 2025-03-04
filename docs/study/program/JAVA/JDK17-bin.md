@@ -55,6 +55,11 @@ jcmd <pid> VM.flags
 jcmd <pid> Thread.print
 #
 jcmd <pid> VM.command_line
+# VM.native_memory 注意启动java进程需要增加参数-XX:NativeMemoryTracking=detail，且这个参数必须在java命令后的第一位置
+# option1 = summry 统计信息
+# option1 = baseline 设置基线 可以通过再次使用summary.diff来比较
+# option2 = scale=MB 修改单位 默认KB
+jcmd <pid> VM.native_memory option1 option2
 ```
 
 ### jconsole
